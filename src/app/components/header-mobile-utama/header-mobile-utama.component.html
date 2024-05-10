@@ -19,7 +19,7 @@
         <div class="mt-6 flow-root">
             <div class="-my-6 divide-thirty-bg divide-y divide-gray-500/10">
                 <div class="space-y-2 py-6">
-                    <a routerLink="/"
+                    <button (click)="gotoPage('/')"
                         class="-mx-3 block rounded-lg px-3 py-2 font-medium leading-7 text-white hover:bg-thirty-bg hover:text-secondary-txt">
                         <span class="flex flex-row items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -30,8 +30,8 @@
                             </svg>
                             Beranda
                         </span>
-                    </a>
-                    <a routerLink="/regulasi-ppdb"
+                    </button>
+                    <button (click)="gotoPage('/regulasi-ppdb')"
                         class="-mx-3 block rounded-lg px-3 py-2 font-medium leading-7 text-white hover:bg-thirty-bg hover:text-secondary-txt">
                         <span class="flex flex-row items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -43,8 +43,8 @@
                             </svg>
                             Regulasi
                         </span>
-                    </a>
-                    <a routerLink="/jadwal-ppdb"
+                    </button>
+                    <button (click)="gotoPage('/jadwal-ppdb')"
                         class="-mx-3 block rounded-lg px-3 py-2 font-medium leading-7 text-white hover:bg-thirty-bg hover:text-secondary-txt">
                         <span class="flex flex-row items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -57,7 +57,7 @@
                             </svg>
                             Jadwal
                         </span>
-                    </a>
+                    </button>
                     <a [href]="safeUrlppdb" target="_blank" rel="noopener noreferrer"
                         class="-mx-3 block rounded-lg px-3 py-2 font-medium leading-7 text-white hover:bg-thirty-bg hover:text-secondary-txt">
                         <span class="flex flex-row items-center">
@@ -70,7 +70,7 @@
                             Pra PPDB
                         </span>
                     </a>
-                    <a routerLink="/hasil-seleksi"
+                    <button (click)="gotoPage('/hasil-seleksi')"
                         class="-mx-3 block rounded-lg px-3 py-2 font-medium leading-7 text-white hover:bg-thirty-bg hover:text-secondary-txt">
                         <span class="flex flex-row items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5  mr-2 -ml-1">
@@ -80,10 +80,10 @@
                               </svg>
                             Hasil Seleksi
                         </span>
-                    </a>
+                    </button>
                 </div>
                 <div class="py-6">
-                    <a routerLink="/sign-in-dashboard"
+                    <button (click)="gotoPage('/sign-in-dashboard')" 
                         class="cursor-pointer -mx-3 block rounded-lg px-3 py-2.5 font-medium leading-7 text-white hover:bg-thirty-bg hover:text-secondary-txt">
                         <span class="flex flex-row items-center">
                             Login 
@@ -94,7 +94,7 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </span>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>

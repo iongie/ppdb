@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loginPpdbForm = this.fb.group({
       'nik': [{ value: null, disabled: false }, [Validators.required]],
       'pin': [{ value: null, disabled: false }, [Validators.required]],
-      // 'g-recaptcha-response': ['', [Validators.required]]
+      'g-recaptcha-response': ['', [Validators.required]]
     })
   }
 
@@ -64,13 +64,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     return this.pinControl.hasError('required') && this.pinControl.touched;
   }
 
-  // get recaptchaControl() {
-  //   return this.loginPpdbForm.get('g-recaptcha-response')!;
-  // }
+  get recaptchaControl() {
+    return this.loginPpdbForm.get('g-recaptcha-response')!;
+  }
 
-  // get noRecaptcha() {
-  //   return this.recaptchaControl.hasError('required') && this.recaptchaControl.touched;
-  // }
+  get noRecaptcha() {
+    return this.recaptchaControl.hasError('required') && this.recaptchaControl.touched;
+  }
 
   recaptchaSuccess(ev: string) {
     this.loginPpdbForm.patchValue({ 'g-recaptcha-response': ev })
@@ -98,7 +98,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.loginPpdbFormData = new FormData();
         this.loginPpdbFormData.append('nik', this.loginPpdbForm.get('nik')?.value)
         this.loginPpdbFormData.append('pin', this.loginPpdbForm.get('pin')?.value)
-        // this.loginPpdbFormData.append('g-recaptcha-response', this.loginPpdbForm.get('g-recaptcha-response')?.value)
+        this.loginPpdbFormData.append('g-recaptcha-response', this.loginPpdbForm.get('g-recaptcha-response')?.value)
       }),
       switchMap(() => this.callApiS.post(this.loginPpdbFormData, 'daftar/login')),
       tap(() => this.isLoading = false),

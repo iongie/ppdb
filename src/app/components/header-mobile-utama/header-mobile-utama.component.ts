@@ -3,6 +3,7 @@ import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 import { Subject, tap, takeUntil } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { NavigasiService } from '../../services/navigasi/navigasi.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ppdb-header-mobile-utama',
@@ -16,7 +17,8 @@ export class HeaderMobileUtamaComponent implements OnInit, OnDestroy {
   safeUrlppdb: SafeUrl | null = null;
   constructor(
     private sanitizer: DomSanitizer,
-    private navigasiS: NavigasiService
+    private navigasiS: NavigasiService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +41,11 @@ export class HeaderMobileUtamaComponent implements OnInit, OnDestroy {
   }
 
   menu(){
+    this.view.emit(false)
+  }
+
+  gotoPage(url: string){
+    this.router.navigate([url]);
     this.view.emit(false)
   }
 }

@@ -71,7 +71,7 @@ export class SidebarDasborComponent implements OnInit, OnDestroy {
   goToPage(url: string, id: number, menu: string, subMenu: string, disabled: number) {
     if(disabled !== 1){
       this.router.navigate([url]);
-      this.view.emit(false);
+      this.view.emit(true);
       this.statePilihMenuS.updatepilihMenu({
         id: id,
         menu: menu,
@@ -82,11 +82,12 @@ export class SidebarDasborComponent implements OnInit, OnDestroy {
 
   gotToDasbor(){
     this.router.navigate(['/dasbor']);
-    this.view.emit(false);
+    this.view.emit(true);
     this.statePilihMenuS.clearpilihMenu();
   }
 
   logout(){
     this.viewKonfirmasiLogout.emit(true);
+    this.view.emit(true);
   }
 }

@@ -15,9 +15,13 @@ export class DasborComponent implements OnInit, OnDestroy {
   ){}
   actionMenu(){
     this.open = !this.open
+    console.log(this.open);
+    
   }
 
   actionMenuFromSidebar(ev: boolean){
+    console.log(ev);
+    
     this.open = ev
   }
 
