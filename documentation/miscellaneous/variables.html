@@ -1,0 +1,1225 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ppdb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">ppdb documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#DasborAccessGuard" title="src/app/guards/dasbor.guard.ts" ><b>DasborAccessGuard</b>&nbsp;&nbsp;&nbsp;(src/.../dasbor.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defAktif" title="src/app/interfaces/dasbor.interface.ts" ><b>defAktif</b>&nbsp;&nbsp;&nbsp;(src/.../dasbor.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defAlamat" title="src/app/interfaces/login.interface.ts" ><b>defAlamat</b>&nbsp;&nbsp;&nbsp;(src/.../login.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defAuth" title="src/app/interfaces/login.interface.ts" ><b>defAuth</b>&nbsp;&nbsp;&nbsp;(src/.../login.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defDaftarSekolah" title="src/app/interfaces/daftar-seleksi.interface.ts" ><b>defDaftarSekolah</b>&nbsp;&nbsp;&nbsp;(src/.../daftar-seleksi.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defDataNilai" title="src/app/interfaces/dasbor.interface.ts" ><b>defDataNilai</b>&nbsp;&nbsp;&nbsp;(src/.../dasbor.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defGanti" title="src/app/interfaces/dasbor.interface.ts" ><b>defGanti</b>&nbsp;&nbsp;&nbsp;(src/.../dasbor.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defHasilSeleksi" title="src/app/interfaces/hasil-seleksi.interface.ts" ><b>defHasilSeleksi</b>&nbsp;&nbsp;&nbsp;(src/.../hasil-seleksi.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defHasilSeleksiSaya" title="src/app/interfaces/hasil-seleksi-saya.interface.ts" ><b>defHasilSeleksiSaya</b>&nbsp;&nbsp;&nbsp;(src/.../hasil-seleksi-saya.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defKategori" title="src/app/interfaces/daftar-seleksi.interface.ts" ><b>defKategori</b>&nbsp;&nbsp;&nbsp;(src/.../daftar-seleksi.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defKategori" title="src/app/interfaces/kategori.interface.ts" ><b>defKategori</b>&nbsp;&nbsp;&nbsp;(src/.../kategori.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defKategoriPilihan" title="src/app/interfaces/kategori.interface.ts" ><b>defKategoriPilihan</b>&nbsp;&nbsp;&nbsp;(src/.../kategori.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defLogin" title="src/app/interfaces/login.interface.ts" ><b>defLogin</b>&nbsp;&nbsp;&nbsp;(src/.../login.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defMenu" title="src/app/interfaces/sidebar.interface.ts" ><b>defMenu</b>&nbsp;&nbsp;&nbsp;(src/.../sidebar.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defNilai" title="src/app/interfaces/dasbor.interface.ts" ><b>defNilai</b>&nbsp;&nbsp;&nbsp;(src/.../dasbor.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defNilaiRapor" title="src/app/interfaces/dasbor.interface.ts" ><b>defNilaiRapor</b>&nbsp;&nbsp;&nbsp;(src/.../dasbor.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defPeserta" title="src/app/interfaces/hasil-seleksi.interface.ts" ><b>defPeserta</b>&nbsp;&nbsp;&nbsp;(src/.../hasil-seleksi.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defPilihMenu" title="src/app/interfaces/pilih-menu.interface.ts" ><b>defPilihMenu</b>&nbsp;&nbsp;&nbsp;(src/.../pilih-menu.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defPilihSekolah" title="src/app/interfaces/daftar-seleksi.interface.ts" ><b>defPilihSekolah</b>&nbsp;&nbsp;&nbsp;(src/.../daftar-seleksi.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defRanking" title="src/app/interfaces/hasil-seleksi.interface.ts" ><b>defRanking</b>&nbsp;&nbsp;&nbsp;(src/.../hasil-seleksi.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defRespon" title="src/app/interfaces/respon.interface.ts" ><b>defRespon</b>&nbsp;&nbsp;&nbsp;(src/.../respon.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defRiwayatPilihan" title="src/app/interfaces/dasbor.interface.ts" ><b>defRiwayatPilihan</b>&nbsp;&nbsp;&nbsp;(src/.../dasbor.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defSekolah" title="src/app/interfaces/daftar-seleksi.interface.ts" ><b>defSekolah</b>&nbsp;&nbsp;&nbsp;(src/.../daftar-seleksi.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defSekolah" title="src/app/interfaces/sekolah.interface.ts" ><b>defSekolah</b>&nbsp;&nbsp;&nbsp;(src/.../sekolah.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defSekolahPilihan" title="src/app/interfaces/sekolah.interface.ts" ><b>defSekolahPilihan</b>&nbsp;&nbsp;&nbsp;(src/.../sekolah.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defSubMenu" title="src/app/interfaces/sidebar.interface.ts" ><b>defSubMenu</b>&nbsp;&nbsp;&nbsp;(src/.../sidebar.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defUser" title="src/app/interfaces/login.interface.ts" ><b>defUser</b>&nbsp;&nbsp;&nbsp;(src/.../login.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.development.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.development.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ProcessAccessGuard" title="src/app/guards/proses.guard.ts" ><b>ProcessAccessGuard</b>&nbsp;&nbsp;&nbsp;(src/.../proses.guard.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/app/guards/dasbor.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DasborAccessGuard"></a>
+                    <span class="name">
+                        <span ><b>DasborAccessGuard</b></span>
+                        <a href="#DasborAccessGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (route, state) &#x3D;&gt; {
+    const routeServ &#x3D; inject(Router);
+    const access &#x3D; inject(StateLoginService);
+    await new Promise(resolve &#x3D;&gt; setTimeout(resolve, 100));
+    
+    const login: Login &#x3D; await firstValueFrom(access.getLogin);
+    return login !&#x3D;&#x3D; defLogin ? true : (routeServ.navigate([&#x27;forbidden&#x27;]), false)
+  }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/interfaces/dasbor.interface.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defAktif"></a>
+                    <span class="name">
+                        <span ><b>defAktif</b></span>
+                        <a href="#defAktif"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Aktif.html" target="_self" >Aktif[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defDataNilai"></a>
+                    <span class="name">
+                        <span ><b>defDataNilai</b></span>
+                        <a href="#defDataNilai"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>DataNilai[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defGanti"></a>
+                    <span class="name">
+                        <span ><b>defGanti</b></span>
+                        <a href="#defGanti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Ganti.html" target="_self" >Ganti[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defNilai"></a>
+                    <span class="name">
+                        <span ><b>defNilai</b></span>
+                        <a href="#defNilai"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Nilai.html" target="_self" >Nilai</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    pengetahuan: null,
+    keterampilan: null,
+    rata_rata: null
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defNilaiRapor"></a>
+                    <span class="name">
+                        <span ><b>defNilaiRapor</b></span>
+                        <a href="#defNilaiRapor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>NilaiRapor[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defRiwayatPilihan"></a>
+                    <span class="name">
+                        <span ><b>defRiwayatPilihan</b></span>
+                        <a href="#defRiwayatPilihan"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/RiwayatPilihan.html" target="_self" >RiwayatPilihan</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    aktif: defAktif,
+    ganti: defGanti
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/interfaces/login.interface.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defAlamat"></a>
+                    <span class="name">
+                        <span ><b>defAlamat</b></span>
+                        <a href="#defAlamat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Alamat.html" target="_self" >Alamat</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    detail: null,
+    rt: null,
+    rw: null,
+    kelurahan: null,
+    kecamatan: null,
+    kabupaten: null,
+    provinsi: null,
+    place: null
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defAuth"></a>
+                    <span class="name">
+                        <span ><b>defAuth</b></span>
+                        <a href="#defAuth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Auth.html" target="_self" >Auth</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    access_token: null,
+    token_type: null,
+    expires_in: null
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defLogin"></a>
+                    <span class="name">
+                        <span ><b>defLogin</b></span>
+                        <a href="#defLogin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Login.html" target="_self" >Login</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    user: defUser,
+    auth: defAuth,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defUser"></a>
+                    <span class="name">
+                        <span ><b>defUser</b></span>
+                        <a href="#defUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    siswa_id: null,
+    nisn: null,
+    nama_lengkap: null,
+    jenis_kelamin: null,
+    tanggal_lahir: null,
+    tempat_lahir: null,
+    nik: null,
+    sekolah_asal: null,
+    npsn: null,
+    nilai_rapor: null,
+    keterangan: null,
+    nilai_prestasi: null,
+    afirmasi: null,
+    prestasi: null,
+    pindahortu: null,
+    anakguru: null,
+    domisili: null,
+    alamat: defAlamat
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/interfaces/daftar-seleksi.interface.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defDaftarSekolah"></a>
+                    <span class="name">
+                        <span ><b>defDaftarSekolah</b></span>
+                        <a href="#defDaftarSekolah"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/DaftarSekolah.html" target="_self" >DaftarSekolah</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    kategori: defKategori,
+    error: null,
+    info: null,
+    sekolah: defSekolah
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defKategori"></a>
+                    <span class="name">
+                        <span ><b>defKategori</b></span>
+                        <a href="#defKategori"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Kategori.html" target="_self" >Kategori</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    tahap: null,
+    menu: null,
+    from: null,
+    to: null,
+    on: null
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defPilihSekolah"></a>
+                    <span class="name">
+                        <span ><b>defPilihSekolah</b></span>
+                        <a href="#defPilihSekolah"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/PilihSekolah.html" target="_self" >PilihSekolah</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    tmsekolah_id:  null,
+    tmdaftarkategori_id: null,
+    ganti: null,
+    pin: null,
+    title: null
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defSekolah"></a>
+                    <span class="name">
+                        <span ><b>defSekolah</b></span>
+                        <a href="#defSekolah"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Sekolah[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/interfaces/hasil-seleksi.interface.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defHasilSeleksi"></a>
+                    <span class="name">
+                        <span ><b>defHasilSeleksi</b></span>
+                        <a href="#defHasilSeleksi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/HasilSeleksi.html" target="_self" >HasilSeleksi</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    ranking: defRanking,
+    peserta: defPeserta
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defPeserta"></a>
+                    <span class="name">
+                        <span ><b>defPeserta</b></span>
+                        <a href="#defPeserta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Peserta.html" target="_self" >Peserta[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defRanking"></a>
+                    <span class="name">
+                        <span ><b>defRanking</b></span>
+                        <a href="#defRanking"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Ranking.html" target="_self" >Ranking</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    id: null,
+    n_file:  null,
+    num: null,
+    kuota: null,
+    created_at: null
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/interfaces/hasil-seleksi-saya.interface.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defHasilSeleksiSaya"></a>
+                    <span class="name">
+                        <span ><b>defHasilSeleksiSaya</b></span>
+                        <a href="#defHasilSeleksiSaya"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/HasilSeleksiSaya.html" target="_self" >HasilSeleksiSaya</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    tahap: null,
+    sekolah: null,
+    jalur: null,
+    nilai_rapor: null,
+    nilai_jarak: null,
+    nilai_prestasi: null,
+    urutan: null,
+    tgl_daftar: null,
+    status: null,
+    ket: null,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/interfaces/kategori.interface.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defKategori"></a>
+                    <span class="name">
+                        <span ><b>defKategori</b></span>
+                        <a href="#defKategori"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Kategori[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defKategoriPilihan"></a>
+                    <span class="name">
+                        <span ><b>defKategoriPilihan</b></span>
+                        <a href="#defKategoriPilihan"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Kategori.html" target="_self" >Kategori</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    id: null,
+    n_daftarkategori: null
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/interfaces/sidebar.interface.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defMenu"></a>
+                    <span class="name">
+                        <span ><b>defMenu</b></span>
+                        <a href="#defMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Menu.html" target="_self" >Menu[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defSubMenu"></a>
+                    <span class="name">
+                        <span ><b>defSubMenu</b></span>
+                        <a href="#defSubMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>SubMenu[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/interfaces/pilih-menu.interface.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defPilihMenu"></a>
+                    <span class="name">
+                        <span ><b>defPilihMenu</b></span>
+                        <a href="#defPilihMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/PilihMenu.html" target="_self" >PilihMenu</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    id: null,
+    menu: null,
+    subMenu: null
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/interfaces/respon.interface.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defRespon"></a>
+                    <span class="name">
+                        <span ><b>defRespon</b></span>
+                        <a href="#defRespon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Respon.html" target="_self" >Respon</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    mode: null,
+    pesan: null
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/interfaces/sekolah.interface.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defSekolah"></a>
+                    <span class="name">
+                        <span ><b>defSekolah</b></span>
+                        <a href="#defSekolah"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Sekolah[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defSekolahPilihan"></a>
+                    <span class="name">
+                        <span ><b>defSekolahPilihan</b></span>
+                        <a href="#defSekolahPilihan"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Sekolah.html" target="_self" >Sekolah</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    id: null,
+    jenjang: null,
+    n_sekolah: null,
+    alamat: null
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/environments/environment.development.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    URL_API: &quot;https://ppdbadmin.tangerangselatankota.go.id/api/v1/&quot;,
+    CAPTCHA_SITE_KEY: &quot;6LdVgqMpAAAAADwYBfJFou9IOgtha8BGgSoM9N7r&quot;,
+    URL_PPDB:  &#x27;https://prappdb.tangerangselatankota.go.id/&#x27;,
+    URL_JADWAL_PPDB:  &#x27;https://docs.google.com/document/d/e/2PACX-1vQzNGsFVKR1ofwbXlUPbEKnWCxl9cFBR848QYh6CW8XRg5lT7MzKugUf8edBguiwp0ztGsSmpIGHayc/pub?embedded&#x3D;true&#x27;,
+    URL_REGULASI_PPDB: &#x27;https://docs.google.com/document/d/e/2PACX-1vRWSb0G7cxJzp0o77VwjncUn4AJViDwyVzdW7I6fSgTvFSqHtLF9rreM6KQQPa-JuL7_dK-lyKfIJd9/pub?embedded&#x3D;true&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/environments/environment.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    URL_API: &quot;https://ppdbadmin.tangerangselatankota.go.id/api/v1/&quot;,
+    CAPTCHA_SITE_KEY: &quot;6LdVgqMpAAAAADwYBfJFou9IOgtha8BGgSoM9N7r&quot;,
+    URL_PPDB:  &#x27;https://prappdb.tangerangselatankota.go.id/&#x27;,
+    URL_JADWAL_PPDB:  &#x27;https://docs.google.com/document/d/e/2PACX-1vQzNGsFVKR1ofwbXlUPbEKnWCxl9cFBR848QYh6CW8XRg5lT7MzKugUf8edBguiwp0ztGsSmpIGHayc/pub?embedded&#x3D;true&#x27;,
+    URL_REGULASI_PPDB: &#x27;https://docs.google.com/document/d/e/2PACX-1vRWSb0G7cxJzp0o77VwjncUn4AJViDwyVzdW7I6fSgTvFSqHtLF9rreM6KQQPa-JuL7_dK-lyKfIJd9/pub?embedded&#x3D;true&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/guards/proses.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ProcessAccessGuard"></a>
+                    <span class="name">
+                        <span ><b>ProcessAccessGuard</b></span>
+                        <a href="#ProcessAccessGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (route, state) &#x3D;&gt; {
+    const routeServ &#x3D; inject(Router);
+    const access &#x3D; inject(StatePilihMenuService);
+    await new Promise(resolve &#x3D;&gt; setTimeout(resolve, 100));
+    
+    const pilihMenu: PilihMenu &#x3D; await firstValueFrom(access.getPilihMenu);
+    return pilihMenu !&#x3D;&#x3D; defPilihMenu ? true : (routeServ.navigate([&#x27;dasbor&#x27;]), false)
+  }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,131 @@
+<div class="py-24 px-4 mx-auto max-w-screen-xl lg:py-24 lg:px-8">
+    <h4 class="mb-8 text-center text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl">
+        Hasil Seleksi PPDB SMPN</h4>
+    <ppdb-form-hasil-seleksi-utama></ppdb-form-hasil-seleksi-utama>
+    <ng-container *ngIf="hasilSeleksi.peserta.length === 0">
+        <section class="bg-white dark:bg-gray-900">
+            <div class="flex flex-col justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-52 h-52 text-center text-gray-300">
+                    <path fill-rule="evenodd"
+                        d="M1.5 5.625c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v12.75c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 0 1 1.5 18.375V5.625ZM21 9.375A.375.375 0 0 0 20.625 9h-7.5a.375.375 0 0 0-.375.375v1.5c0 .207.168.375.375.375h7.5a.375.375 0 0 0 .375-.375v-1.5Zm0 3.75a.375.375 0 0 0-.375-.375h-7.5a.375.375 0 0 0-.375.375v1.5c0 .207.168.375.375.375h7.5a.375.375 0 0 0 .375-.375v-1.5Zm0 3.75a.375.375 0 0 0-.375-.375h-7.5a.375.375 0 0 0-.375.375v1.5c0 .207.168.375.375.375h7.5a.375.375 0 0 0 .375-.375v-1.5ZM10.875 18.75a.375.375 0 0 0 .375-.375v-1.5a.375.375 0 0 0-.375-.375h-7.5a.375.375 0 0 0-.375.375v1.5c0 .207.168.375.375.375h7.5ZM3.375 15h7.5a.375.375 0 0 0 .375-.375v-1.5a.375.375 0 0 0-.375-.375h-7.5a.375.375 0 0 0-.375.375v1.5c0 .207.168.375.375.375Zm0-3.75h7.5a.375.375 0 0 0 .375-.375v-1.5A.375.375 0 0 0 10.875 9h-7.5A.375.375 0 0 0 3 9.375v1.5c0 .207.168.375.375.375Z"
+                        clip-rule="evenodd" />
+                </svg>
+
+                <p class="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">Tidak
+                    Ada Data</p>
+                <p class="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">Maaf, saat ini tidak ada data
+                    yang tersedia.</p>
+            </div>
+        </section>
+    </ng-container>
+    <ng-container *ngIf="hasilSeleksi.peserta.length !== 0">
+        <div
+            class="grid mb-4 sm:grid-cols-1 divide-y divide-gray-100 border border-gray-300 rounded-lg mx-auto md:mx-56">
+            <div class="grid gap-2 grid-cols-4">
+                <div class="mt-2 flex flex-row justify-between">
+                    <label class="text-start ml-2 md:ml-4 text-sm font-medium text-primary-bg">
+                        Kuota Peserta
+                    </label>
+                    <label class="text-sm font-medium text-primary-bg">
+                        :
+                    </label>
+                </div>
+                <div class="text-start col-span-3 text-primary-bg text-sm rounded-lg block w-full p-2.5">
+                    {{hasilSeleksi.ranking.kuota}}</div>
+            </div>
+            <div class="grid gap-2 grid-cols-4">
+                <div class="mt-2 flex flex-row justify-between">
+                    <label class="text-start ml-2 md:ml-4 text-sm font-medium text-primary-bg">
+                        Jumlah Pendaftar
+                    </label>
+                    <label class="text-sm font-medium text-primary-bg">
+                        :
+                    </label>
+                </div>
+                <div class="text-start col-span-3 text-primary-bg text-sm rounded-lg block w-full p-2.5">
+                    {{hasilSeleksi.ranking.num}}</div>
+            </div>
+            <div class="grid gap-2 grid-cols-4">
+                <div class="mt-2 flex flex-row justify-between">
+                    <label class="text-start ml-2 md:ml-4 text-sm font-medium text-primary-bg">
+                        Waktu Update
+                    </label>
+                    <label class="text-sm font-medium text-primary-bg">
+                        :
+                    </label>
+                </div>
+                <div class="text-start col-span-3 text-primary-bg text-sm rounded-lg block w-full p-2.5">
+                    {{hasilSeleksi.ranking.created_at}}</div>
+            </div>
+        </div>
+
+        <div class="relative overflow-x-auto border sm:rounded-lg max-h-96 mb-8">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                <thead class="sticky top-0  text-xs text-gray-700 uppercase bg-gray-50 border-b border-gray-200">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Urutan
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            NISN
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Nama Siswa
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Sekolah asal
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Status
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Deskripsi
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let peserta of hasilSeleksi.peserta; let i = index">
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-blue-50">
+                                {{peserta.ordering}}
+                            </th>
+                            <td class="px-6 py-4 bg-white">
+                                {{peserta.nisn}}
+                            </td>
+                            <td class="px-6 py-4 bg-blue-50">
+                                {{peserta.n_siswa}}
+                            </td>
+                            <td class="px-6 py-4 bg-white">
+                                {{peserta.sekolah_asal}}
+                            </td>
+                            <td class="px-6 py-4 bg-blue-50 text-primary-bg flex justify-between">
+                                <span class="font-medium">{{peserta.c_lulus === 1 ? 'Lulus': 'Tidak Lulus'}}</span>
+
+                                <ng-container *ngIf="peserta.c_lulus === 1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        class="w-6 h-6 text-green-700">
+                                        <path fill-rule="evenodd"
+                                            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </ng-container>
+                                <ng-container *ngIf="peserta.c_lulus !== 1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                        class="w-6 h-6 text-red-700">
+                                        <path fill-rule="evenodd"
+                                            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </ng-container>
+                            </td>
+                            <td class="px-6 py-4 bg-white">
+                                {{peserta.c_ganti === 1 ? 'Ganti Pilihan': '-'}}
+                            </td>
+                        </tr>
+                    </ng-container>
+
+                </tbody>
+            </table>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,398 @@
+<div class="py-8 md:ml-14 md mx-auto max-w-screen-xl text-start buble-pattern">
+    <ng-container *ngIf="getDasborError">
+        <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+            <span class="font-medium">Info alert!</span> {{getDasborErrorMessage}}, <span
+            class="font-medium text-md hover:underline cursor-pointer"
+            (click)="refreshDataGetDasbor()">Ulangi</span>
+        </div>
+    </ng-container>
+    <h3 class="mb-8 text-2xl md:text-3xl font-bold">Biodata</h3>
+    <div class="grid mb-8 sm:grid-cols-1 divide-y divide-gray-100 border border-gray-300 rounded-lg">
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    NISN
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.nisn}}</div>
+        </div>
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    NIK
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.nik}}</div>
+        </div>
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Nama Lengkap
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.nama_lengkap}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Jenis Kelamin
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.jenis_kelamin}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Tempat, Tanggal Lahir
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.tempat_lahir}}, {{user.tanggal_lahir}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Domisili
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.domisili}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Alamat
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.alamat.detail}}, RT {{user.alamat.rt}}/ RW {{user.alamat.rw}}, kelurahan
+                {{user.alamat.kelurahan}}, kecamatan {{user.alamat.kecamatan}}, kabupaten {{user.alamat.kabupaten}},
+                provinsi {{user.alamat.provinsi}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Asal Sekolah
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.sekolah_asal}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Nilai Rapor
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.nilai_rapor}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Bobot Prestasi
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.nilai_prestasi}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Afirmasi /Disabilitas
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.afirmasi}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Pindah Orang tua/Wali
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.pindahortu}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Anak Gurun
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.anakguru}}</div>
+        </div>
+        <div class="grid gap-2 grid-cols-4">
+            <div (click)="lihatDaftarNilai()"
+                class="hover:underline cursor-pointer hover:text-thirty-bg font-medium ml-2 col-span-4 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                Lihat Daftar Nilai</div>
+        </div>
+    </div>
+    <h3 class="mb-8 text-2xl md:text-3xl font-bold">Pilihan Sekolah</h3>
+    <div class="grid  sm:grid-cols-2 items-start md:gap-8 mb-8 rounded-lg">
+        <div class="grid mb-8 sm:grid-cols-1 divide-y border border-gray-300 rounded-sm">
+            <div class="pl-4 py-2 bg-primary-bg">
+                <h5 class="text-base md:text-base font-medium text-primary-txt">Sekarang</h5>
+            </div>
+            <ng-container *ngFor="let aktif of riwayatPilihan.aktif">
+                <div
+                    class="grid sm:grid-cols-1 divide-y divide-gray-300  w-full max-h-96 overflow-y-scroll overflow-x-hidden">
+                    <div class="grid my-2 sm:grid-cols-1 rounded-lg divide-y divide-gray-50">
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Tahap
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{aktif.tahap}}</div>
+                        </div>
+
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Pilihan
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{aktif.sekolah}}</div>
+                        </div>
+
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Jalur
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{aktif.jalur}}</div>
+                        </div>
+
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Urutan
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{aktif.urutan}}</div>
+                        </div>
+
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Daftar
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{aktif.tgl_daftar}}</div>
+                        </div>
+
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Status
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{aktif.status}}</div>
+                        </div>
+
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Ket
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{aktif.ket}}</div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <div class="grid mb-8 sm:grid-cols-1 items-start divide-y border border-gray-300 rounded-sm">
+            <div class="pl-4 py-2 bg-primary-bg">
+                <h5 class="text-base md:text-base font-medium text-primary-txt">Riwayat</h5>
+            </div>
+            <ng-container *ngFor="let ganti of riwayatPilihan.ganti">
+                <div
+                    class="grid sm:grid-cols-1 divide-y divide-gray-300  w-full max-h-96 overflow-y-scroll overflow-x-hidden">
+                    <div class="grid my-2 sm:grid-cols-1 rounded-lg">
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Tahap
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{ganti.tahap}}</div>
+                        </div>
+
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Pilihan
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{ganti.sekolah}}</div>
+                        </div>
+
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Jalur
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{ganti.jalur}}</div>
+                        </div>
+
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Urutan
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{ganti.urutan}}</div>
+                        </div>
+
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Daftar
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{ganti.tgl_daftar}}</div>
+                        </div>
+
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Ganti
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{ganti.tgl_ganti}}</div>
+                        </div>
+
+                        <div class="grid grid-cols-4 py-1">
+                            <div class="flex flex-row justify-between">
+                                <label class="ml-4 text-sm font-medium text-blue-900">
+                                    Status
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="ml-2 col-span-3 text-blue-900 text-sm rounded-lg block w-full">
+                                {{ganti.status}}</div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="viewLihatDaftarNilai">
+    <div class="fixed flex justify-center items-center inset-0 z-50 bg-gray-300 bg-opacity-65 w-full h-full">
+        <ppdb-lihat-daftar-nilai-dasbor [nilai]="nilai" (view)="getLihatDaftarNilai($event)"></ppdb-lihat-daftar-nilai-dasbor>
+    </div>
+</ng-container>

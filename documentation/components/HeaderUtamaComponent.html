@@ -1,0 +1,923 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ppdb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">ppdb documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HeaderUtamaComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/header-utama/header-utama.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ppdb-header-utama</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./header-utama.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./header-utama.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#destroy" >destroy</a>
+                            </li>
+                            <li>
+                                <a href="#menuKondisi" >menuKondisi</a>
+                            </li>
+                            <li>
+                                <a href="#safeUrlppdb" >safeUrlppdb</a>
+                            </li>
+                            <li>
+                                <a href="#url" >url</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getNavigasi" >getNavigasi</a>
+                            </li>
+                            <li>
+                                <a href="#menu" >menu</a>
+                            </li>
+                            <li>
+                                <a href="#menuMobile" >menuMobile</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(sanitizer: DomSanitizer, navigasiS: <a href="../injectables/NavigasiService.html" target="_self">NavigasiService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/header-utama/header-utama.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>sanitizer</td>
+                                                  
+                                                        <td>
+                                                                    <code>DomSanitizer</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>navigasiS</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NavigasiService.html" target="_self" >NavigasiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getNavigasi"></a>
+                    <span class="name">
+                        <span ><b>getNavigasi</b></span>
+                        <a href="#getNavigasi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getNavigasi()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/app/components/header-utama/header-utama.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menu"></a>
+                    <span class="name">
+                        <span ><b>menu</b></span>
+                        <a href="#menu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>menu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/app/components/header-utama/header-utama.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menuMobile"></a>
+                    <span class="name">
+                        <span ><b>menuMobile</b></span>
+                        <a href="#menuMobile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>menuMobile(ev: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/app/components/header-utama/header-utama.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ev</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">src/app/components/header-utama/header-utama.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="22"
+                                    class="link-to-prism">src/app/components/header-utama/header-utama.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>destroy</b></span>
+                        <a href="#destroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;void&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/header-utama/header-utama.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menuKondisi"></a>
+                    <span class="name">
+                        <span ><b>menuKondisi</b></span>
+                        <a href="#menuKondisi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/header-utama/header-utama.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="safeUrlppdb"></a>
+                    <span class="name">
+                        <span ><b>safeUrlppdb</b></span>
+                        <a href="#safeUrlppdb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>SafeUrl | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/header-utama/header-utama.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="url"></a>
+                    <span class="name">
+                        <span ><b>url</b></span>
+                        <a href="#url"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/header-utama/header-utama.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { DomSanitizer, SafeUrl } from &#x27;@angular/platform-browser&#x27;;
+import { Subject, takeUntil, tap } from &#x27;rxjs&#x27;;
+import { environment } from &#x27;../../../environments/environment&#x27;;
+import { NavigasiService } from &#x27;../../services/navigasi/navigasi.service&#x27;;
+
+@Component({
+  selector: &#x27;ppdb-header-utama&#x27;,
+  templateUrl: &#x27;./header-utama.component.html&#x27;,
+  styleUrl: &#x27;./header-utama.component.css&#x27;
+})
+export class HeaderUtamaComponent implements OnInit, OnDestroy {
+  url: string | null &#x3D; null;
+  private destroy: Subject&lt;void&gt; &#x3D; new Subject&lt;void&gt;;
+  safeUrlppdb: SafeUrl | null &#x3D; null;
+  menuKondisi: Boolean &#x3D; false;
+  constructor(
+    private sanitizer: DomSanitizer,
+    private navigasiS: NavigasiService
+  ) { }
+
+  ngOnInit(): void {
+    this.safeUrlppdb &#x3D; this.sanitizer.bypassSecurityTrustResourceUrl(environment.URL_PPDB);
+    this.getNavigasi();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy.next();
+    this.destroy.complete();
+  }
+
+  getNavigasi(){
+    this.navigasiS.dapatkanUrl
+    .pipe(
+      tap(n&#x3D;&gt; this.url &#x3D; n),
+      takeUntil(this.destroy)
+    )
+    .subscribe()
+  }
+
+  menu(){
+    this.menuKondisi &#x3D; !this.menuKondisi
+  }
+
+  menuMobile(ev: boolean ){
+    console.log(&#x27;kondisi dari menu mobile&#x27;, ev);
+    this.menuKondisi &#x3D; ev;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;header class&#x3D;&quot;header-utama-pattern bg-gray-100 fixed inset-x-0 top-0 z-50&quot;&gt;
+    &lt;nav class&#x3D;&quot;flex items-center justify-between p-4 lg:px-4&quot; aria-label&#x3D;&quot;Global&quot;&gt;
+      &lt;div class&#x3D;&quot;flex lg:flex-1&quot;&gt;
+        &lt;a routerLink&#x3D;&quot;#&quot; class&#x3D;&quot;-m-1.5 p-1.5&quot;&gt;
+          &lt;span class&#x3D;&quot;sr-only&quot;&gt;Dikbud&lt;/span&gt;
+          &lt;img class&#x3D;&quot;h-8 w-auto&quot; src&#x3D;&quot;../assets/logodikbud.png&quot; alt&#x3D;&quot;&quot;&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;flex lg:hidden&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;menu()&quot;
+          class&#x3D;&quot;-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-primary-txt&quot;&gt;
+          &lt;span class&#x3D;&quot;sr-only&quot;&gt;Open main menu&lt;/span&gt;
+          &lt;svg class&#x3D;&quot;h-6 w-6&quot; fill&#x3D;&quot;none&quot; viewBox&#x3D;&quot;0 0 24 24&quot; stroke-width&#x3D;&quot;1.5&quot; stroke&#x3D;&quot;currentColor&quot;
+            aria-hidden&#x3D;&quot;true&quot;&gt;
+            &lt;path stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot; d&#x3D;&quot;M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5&quot; /&gt;
+          &lt;/svg&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;hidden lg:flex lg:gap-6&quot;&gt;
+        &lt;a routerLink&#x3D;&quot;/&quot; [ngClass]&#x3D;&quot;url &#x3D;&#x3D;&#x3D; &#x27;/&#x27;? &#x27;text-thirty-bg&#x27;: &#x27;text-primary-bg&#x27;&quot;
+          class&#x3D;&quot;cursor-pointer inline-flex items-center justify-center py-2 pr-4 pl-3 font-medium leading-6 text-primary-txt hover:ring-1 hover:ring-thirty-bg hover:text-thirty-bg hover:rounded-lg&quot;&gt;
+          &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;0 0 20 20&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;w-5 h-5  mr-2 -ml-1&quot;&gt;
+            &lt;path fill-rule&#x3D;&quot;evenodd&quot;
+              d&#x3D;&quot;M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z&quot;
+              clip-rule&#x3D;&quot;evenodd&quot; /&gt;
+          &lt;/svg&gt;
+          Beranda
+        &lt;/a&gt;
+        &lt;a routerLink&#x3D;&quot;/regulasi-ppdb&quot; [ngClass]&#x3D;&quot;url &#x3D;&#x3D;&#x3D; &#x27;/regulasi-ppdb&#x27;? &#x27;text-thirty-bg&#x27;: &#x27;text-primary-bg&#x27;&quot;
+          class&#x3D;&quot;cursor-pointer inline-flex items-center justify-center py-2 pr-4 pl-3 font-medium leading-6 text-primary-txt  hover:ring-1 hover:ring-thirty-bg hover:text-thirty-bg hover:rounded-lg&quot;&gt;
+          &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;0 0 20 20&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;w-5 h-5  mr-2 -ml-1&quot;&gt;
+            &lt;path fill-rule&#x3D;&quot;evenodd&quot;
+              d&#x3D;&quot;M2 3.5A1.5 1.5 0 0 1 3.5 2h9A1.5 1.5 0 0 1 14 3.5v11.75A2.75 2.75 0 0 0 16.75 18h-12A2.75 2.75 0 0 1 2 15.25V3.5Zm3.75 7a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Zm0 3a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5ZM5 5.75A.75.75 0 0 1 5.75 5h4.5a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-.75.75h-4.5A.75.75 0 0 1 5 8.25v-2.5Z&quot;
+              clip-rule&#x3D;&quot;evenodd&quot; /&gt;
+            &lt;path d&#x3D;&quot;M16.5 6.5h-1v8.75a1.25 1.25 0 1 0 2.5 0V8a1.5 1.5 0 0 0-1.5-1.5Z&quot; /&gt;
+          &lt;/svg&gt;
+          Regulasi
+        &lt;/a&gt;
+        &lt;a routerLink&#x3D;&quot;/jadwal-ppdb&quot; [ngClass]&#x3D;&quot;url &#x3D;&#x3D;&#x3D; &#x27;/jadwal-ppdb&#x27;? &#x27;text-thirty-bg&#x27;: &#x27;text-primary-bg&#x27;&quot;
+          class&#x3D;&quot;cursor-pointer inline-flex items-center justify-center py-2 pr-4 pl-3 font-medium leading-6 text-primary-txt hover:ring-1 hover:ring-thirty-bg hover:text-thirty-bg hover:rounded-lg&quot;&gt;
+          &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;w-5 h-5  mr-2 -ml-1&quot;&gt;
+            &lt;path
+              d&#x3D;&quot;M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z&quot; /&gt;
+            &lt;path fill-rule&#x3D;&quot;evenodd&quot;
+              d&#x3D;&quot;M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z&quot;
+              clip-rule&#x3D;&quot;evenodd&quot; /&gt;
+          &lt;/svg&gt;
+          Jadwal
+        &lt;/a&gt;
+        &lt;a [href]&#x3D;&quot;safeUrlppdb&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;
+          class&#x3D;&quot;inline-flex items-center justify-center py-2 pr-4 pl-3 font-medium leading-6 text-primary-txt hover:ring-1 hover:ring-thirty-bg hover:text-thirty-bg hover:rounded-lg&quot;&gt;
+          &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;w-5 h-5  mr-2 -ml-1&quot;&gt;
+            &lt;path fill-rule&#x3D;&quot;evenodd&quot;
+              d&#x3D;&quot;M19.902 4.098a3.75 3.75 0 0 0-5.304 0l-4.5 4.5a3.75 3.75 0 0 0 1.035 6.037.75.75 0 0 1-.646 1.353 5.25 5.25 0 0 1-1.449-8.45l4.5-4.5a5.25 5.25 0 1 1 7.424 7.424l-1.757 1.757a.75.75 0 1 1-1.06-1.06l1.757-1.757a3.75 3.75 0 0 0 0-5.304Zm-7.389 4.267a.75.75 0 0 1 1-.353 5.25 5.25 0 0 1 1.449 8.45l-4.5 4.5a5.25 5.25 0 1 1-7.424-7.424l1.757-1.757a.75.75 0 1 1 1.06 1.06l-1.757 1.757a3.75 3.75 0 1 0 5.304 5.304l4.5-4.5a3.75 3.75 0 0 0-1.035-6.037.75.75 0 0 1-.354-1Z&quot;
+              clip-rule&#x3D;&quot;evenodd&quot; /&gt;
+          &lt;/svg&gt;
+          Pra PPDB
+        &lt;/a&gt;
+        &lt;a routerLink&#x3D;&quot;/hasil-seleksi&quot; [ngClass]&#x3D;&quot;url &#x3D;&#x3D;&#x3D; &#x27;/lihat-pengumuman&#x27;? &#x27;text-thirty-bg&#x27;: &#x27;text-primary-bg&#x27;&quot;
+          class&#x3D;&quot;cursor-pointer inline-flex items-center justify-center py-2 pr-4 pl-3 font-medium leading-6 text-primary-txt hover:ring-1 hover:ring-thirty-bg hover:text-thirty-bg hover:rounded-lg&quot;&gt;
+          &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;w-5 h-5  mr-2 -ml-1&quot;&gt;
+            &lt;path fill-rule&#x3D;&quot;evenodd&quot;
+              d&#x3D;&quot;M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z&quot;
+              clip-rule&#x3D;&quot;evenodd&quot; /&gt;
+          &lt;/svg&gt;
+          Hasil Seleksi
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;hidden lg:flex lg:flex-1 lg:justify-end gap-2&quot;&gt;
+        &lt;a routerLink&#x3D;&quot;/sign-in-dashboard&quot;
+          class&#x3D;&quot;cursor-pointer inline-flex justify-center items-center py-2 px-5 text-base font-medium text-center text-secondary-txt rounded-lg bg-thirty-bg hover:bg-fourty-bg hover:text-secondary-txt&quot;&gt;
+          Login
+          &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;w-5 h-5 ml-2 -mr-1&quot;&gt;
+            &lt;path fill-rule&#x3D;&quot;evenodd&quot;
+              d&#x3D;&quot;M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z&quot;
+              clip-rule&#x3D;&quot;evenodd&quot; /&gt;
+          &lt;/svg&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;menuKondisi&quot;&gt;
+      &lt;ppdb-header-mobile-utama (view)&#x3D;&quot;menuMobile($event)&quot;&gt; &lt;/ppdb-header-mobile-utama&gt;
+    &lt;/ng-container&gt;
+  &lt;/header&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><header class="header-utama-pattern bg-gray-100 fixed inset-x-0 top-0 z-50">    <nav class="flex items-center justify-between p-4 lg:px-4" aria-label="Global">      <div class="flex lg:flex-1">        <a routerLink="#" class="-m-1.5 p-1.5">          <span class="sr-only">Dikbud</span>          <img class="h-8 w-auto" src="../assets/logodikbud.png" alt="">        </a>      </div>      <div class="flex lg:hidden">        <button type="button" (click)="menu()"          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-primary-txt">          <span class="sr-only">Open main menu</span>          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"            aria-hidden="true">            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />          </svg>        </button>      </div>      <div class="hidden lg:flex lg:gap-6">        <a routerLink="/" [ngClass]="url === \'/\'? \'text-thirty-bg\': \'text-primary-bg\'"          class="cursor-pointer inline-flex items-center justify-center py-2 pr-4 pl-3 font-medium leading-6 text-primary-txt hover:ring-1 hover:ring-thirty-bg hover:text-thirty-bg hover:rounded-lg">          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5  mr-2 -ml-1">            <path fill-rule="evenodd"              d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z"              clip-rule="evenodd" />          </svg>          Beranda        </a>        <a routerLink="/regulasi-ppdb" [ngClass]="url === \'/regulasi-ppdb\'? \'text-thirty-bg\': \'text-primary-bg\'"          class="cursor-pointer inline-flex items-center justify-center py-2 pr-4 pl-3 font-medium leading-6 text-primary-txt  hover:ring-1 hover:ring-thirty-bg hover:text-thirty-bg hover:rounded-lg">          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5  mr-2 -ml-1">            <path fill-rule="evenodd"              d="M2 3.5A1.5 1.5 0 0 1 3.5 2h9A1.5 1.5 0 0 1 14 3.5v11.75A2.75 2.75 0 0 0 16.75 18h-12A2.75 2.75 0 0 1 2 15.25V3.5Zm3.75 7a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Zm0 3a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5ZM5 5.75A.75.75 0 0 1 5.75 5h4.5a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-.75.75h-4.5A.75.75 0 0 1 5 8.25v-2.5Z"              clip-rule="evenodd" />            <path d="M16.5 6.5h-1v8.75a1.25 1.25 0 1 0 2.5 0V8a1.5 1.5 0 0 0-1.5-1.5Z" />          </svg>          Regulasi        </a>        <a routerLink="/jadwal-ppdb" [ngClass]="url === \'/jadwal-ppdb\'? \'text-thirty-bg\': \'text-primary-bg\'"          class="cursor-pointer inline-flex items-center justify-center py-2 pr-4 pl-3 font-medium leading-6 text-primary-txt hover:ring-1 hover:ring-thirty-bg hover:text-thirty-bg hover:rounded-lg">          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5  mr-2 -ml-1">            <path              d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />            <path fill-rule="evenodd"              d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"              clip-rule="evenodd" />          </svg>          Jadwal        </a>        <a [href]="safeUrlppdb" target="_blank" rel="noopener noreferrer"          class="inline-flex items-center justify-center py-2 pr-4 pl-3 font-medium leading-6 text-primary-txt hover:ring-1 hover:ring-thirty-bg hover:text-thirty-bg hover:rounded-lg">          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5  mr-2 -ml-1">            <path fill-rule="evenodd"              d="M19.902 4.098a3.75 3.75 0 0 0-5.304 0l-4.5 4.5a3.75 3.75 0 0 0 1.035 6.037.75.75 0 0 1-.646 1.353 5.25 5.25 0 0 1-1.449-8.45l4.5-4.5a5.25 5.25 0 1 1 7.424 7.424l-1.757 1.757a.75.75 0 1 1-1.06-1.06l1.757-1.757a3.75 3.75 0 0 0 0-5.304Zm-7.389 4.267a.75.75 0 0 1 1-.353 5.25 5.25 0 0 1 1.449 8.45l-4.5 4.5a5.25 5.25 0 1 1-7.424-7.424l1.757-1.757a.75.75 0 1 1 1.06 1.06l-1.757 1.757a3.75 3.75 0 1 0 5.304 5.304l4.5-4.5a3.75 3.75 0 0 0-1.035-6.037.75.75 0 0 1-.354-1Z"              clip-rule="evenodd" />          </svg>          Pra PPDB        </a>        <a routerLink="/hasil-seleksi" [ngClass]="url === \'/lihat-pengumuman\'? \'text-thirty-bg\': \'text-primary-bg\'"          class="cursor-pointer inline-flex items-center justify-center py-2 pr-4 pl-3 font-medium leading-6 text-primary-txt hover:ring-1 hover:ring-thirty-bg hover:text-thirty-bg hover:rounded-lg">          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5  mr-2 -ml-1">            <path fill-rule="evenodd"              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"              clip-rule="evenodd" />          </svg>          Hasil Seleksi        </a>      </div>      <div class="hidden lg:flex lg:flex-1 lg:justify-end gap-2">        <a routerLink="/sign-in-dashboard"          class="cursor-pointer inline-flex justify-center items-center py-2 px-5 text-base font-medium text-center text-secondary-txt rounded-lg bg-thirty-bg hover:bg-fourty-bg hover:text-secondary-txt">          Login          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 ml-2 -mr-1">            <path fill-rule="evenodd"              d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z"              clip-rule="evenodd" />          </svg>        </a>      </div>    </nav>    <ng-container *ngIf="menuKondisi">      <ppdb-header-mobile-utama (view)="menuMobile($event)"> </ppdb-header-mobile-utama>    </ng-container>  </header></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'ppdb-root'},{'name': 'BerandaComponent', 'selector': 'ppdb-beranda'},{'name': 'DasborComponent', 'selector': 'ppdb-dasbor'},{'name': 'DasborComponent', 'selector': 'ppdb-dasbor'},{'name': 'FormHasilSeleksiUtamaComponent', 'selector': 'ppdb-form-hasil-seleksi-utama'},{'name': 'FormPilihSekolahDasborComponent', 'selector': 'ppdb-form-pilih-sekolah-dasbor'},{'name': 'Halaman403Component', 'selector': 'ppdb-halaman-403'},{'name': 'Halaman404Component', 'selector': 'ppdb-halaman-404'},{'name': 'Halaman500Component', 'selector': 'ppdb-halaman-500'},{'name': 'HasilSeleksiComponent', 'selector': 'ppdb-hasil-seleksi'},{'name': 'HasilSeleksiSayaDasborComponent', 'selector': 'ppdb-hasil-seleksi-saya-dasbor'},{'name': 'HeaderMobileUtamaComponent', 'selector': 'ppdb-header-mobile-utama'},{'name': 'HeaderUtamaComponent', 'selector': 'ppdb-header-utama'},{'name': 'HeroUtamaComponent', 'selector': 'ppdb-hero-utama'},{'name': 'JadwalComponent', 'selector': 'ppdb-jadwal'},{'name': 'KonfirmasiFormPilihSekolahDasborComponent', 'selector': 'ppdb-konfirmasi-form-pilih-sekolah-dasbor'},{'name': 'LoginComponent', 'selector': 'ppdb-login'},{'name': 'ProsesComponent', 'selector': 'ppdb-proses'},{'name': 'RegulasiComponent', 'selector': 'ppdb-regulasi'},{'name': 'ResponModalComponent', 'selector': 'ppdb-respon-modal'},{'name': 'SidebarDasborComponent', 'selector': 'ppdb-sidebar-dasbor'},{'name': 'SupportUsUtamaComponent', 'selector': 'ppdb-support-us-utama'},{'name': 'UtamaComponent', 'selector': 'ppdb-utama'}];
+    var DIRECTIVES = [{'name': 'InputHanyaNomorDirective', 'selector': '[ppdbInputHanyaNomor]'},{'name': 'SidebarDropdownDirective', 'selector': '[ppdbSidebarDropdown]'}];
+    var ACTUAL_COMPONENT = {'name': 'HeaderUtamaComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HeaderUtamaComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

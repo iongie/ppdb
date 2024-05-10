@@ -1,0 +1,1325 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ppdb documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">ppdb documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LoginComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/login/login.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ppdb-login</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./login.component.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actionMessageError" >actionMessageError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#captchaElem" >captchaElem</a>
+                            </li>
+                            <li>
+                                <a href="#captchaSiteKey" >captchaSiteKey</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#destroy" >destroy</a>
+                            </li>
+                            <li>
+                                <a href="#isLoading" >isLoading</a>
+                            </li>
+                            <li>
+                                <a href="#loginPpdbForm" >loginPpdbForm</a>
+                            </li>
+                            <li>
+                                <a href="#loginPpdbFormData" >loginPpdbFormData</a>
+                            </li>
+                            <li>
+                                <a href="#messageError" >messageError</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                            <li>
+                                <a href="#formLogin" >formLogin</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#recaptchaSuccess" >recaptchaSuccess</a>
+                            </li>
+                            <li>
+                                <a href="#submit" >submit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#nikControl" >nikControl</a>
+                                </li>
+                                <li>
+                                    <a href="#noNik" >noNik</a>
+                                </li>
+                                <li>
+                                    <a href="#pinControl" >pinControl</a>
+                                </li>
+                                <li>
+                                    <a href="#noPin" >noPin</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, callApiS: <a href="../injectables/CallApiService.html" target="_self">CallApiService</a>, StateLoginS: <a href="../injectables/StateLoginService.html" target="_self">StateLoginService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/login/login.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>callApiS</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CallApiService.html" target="_self" >CallApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>StateLoginS</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StateLoginService.html" target="_self" >StateLoginService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancel"></a>
+                    <span class="name">
+                        <span ><b>cancel</b></span>
+                        <a href="#cancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">src/app/pages/login/login.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formLogin"></a>
+                    <span class="name">
+                        <span ><b>formLogin</b></span>
+                        <a href="#formLogin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formLogin()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/pages/login/login.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/app/pages/login/login.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/app/pages/login/login.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recaptchaSuccess"></a>
+                    <span class="name">
+                        <span ><b>recaptchaSuccess</b></span>
+                        <a href="#recaptchaSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>recaptchaSuccess(ev: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/pages/login/login.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ev</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submit"></a>
+                    <span class="name">
+                        <span ><b>submit</b></span>
+                        <a href="#submit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/pages/login/login.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actionMessageError"></a>
+                    <span class="name">
+                        <span ><b>actionMessageError</b></span>
+                        <a href="#actionMessageError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/pages/login/login.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="captchaElem"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>captchaElem</b></span>
+                        <a href="#captchaElem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ReCaptcha2Component</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;captchaElem&#x27;, {static: false})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/login/login.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="captchaSiteKey"></a>
+                    <span class="name">
+                        <span ><b>captchaSiteKey</b></span>
+                        <a href="#captchaSiteKey"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>environment.CAPTCHA_SITE_KEY</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/login/login.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>destroy</b></span>
+                        <a href="#destroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;void&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/login/login.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoading"></a>
+                    <span class="name">
+                        <span ><b>isLoading</b></span>
+                        <a href="#isLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/login/login.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loginPpdbForm"></a>
+                    <span class="name">
+                        <span ><b>loginPpdbForm</b></span>
+                        <a href="#loginPpdbForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/login/login.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loginPpdbFormData"></a>
+                    <span class="name">
+                        <span ><b>loginPpdbFormData</b></span>
+                        <a href="#loginPpdbFormData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormData | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/login/login.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="messageError"></a>
+                    <span class="name">
+                        <span ><b>messageError</b></span>
+                        <a href="#messageError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/login/login.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nikControl"></a>
+                        <span class="name"><b>nikControl</b><a href="#nikControl"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>nikControl()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/pages/login/login.component.ts:51</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="noNik"></a>
+                        <span class="name"><b>noNik</b><a href="#noNik"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>noNik()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/pages/login/login.component.ts:55</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pinControl"></a>
+                        <span class="name"><b>pinControl</b><a href="#pinControl"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>pinControl()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/pages/login/login.component.ts:59</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="noPin"></a>
+                        <span class="name"><b>noPin</b><a href="#noPin"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>noPin()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/pages/login/login.component.ts:63</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { ReCaptcha2Component } from &#x27;ngx-captcha&#x27;;
+import { Subject, catchError, map, of, switchMap, takeUntil, tap } from &#x27;rxjs&#x27;;
+import { environment } from &#x27;../../../environments/environment&#x27;;
+import { CallApiService } from &#x27;../../services/call-api/call-api.service&#x27;;
+import { StateLoginService } from &#x27;../../services/state-login/state-login.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;ppdb-login&#x27;,
+  templateUrl: &#x27;./login.component.html&#x27;,
+  styleUrl: &#x27;./login.component.css&#x27;
+})
+export class LoginComponent implements OnInit, OnDestroy {
+  private destroy: Subject&lt;void&gt; &#x3D; new Subject&lt;void&gt;;
+  captchaSiteKey &#x3D; environment.CAPTCHA_SITE_KEY;
+  @ViewChild(&#x27;captchaElem&#x27;, { static: false }) captchaElem!: ReCaptcha2Component;
+  loginPpdbForm!: FormGroup;
+  loginPpdbFormData: FormData | null &#x3D; null;
+  actionMessageError: boolean &#x3D; false;
+  messageError: string &#x3D; &#x27;&#x27;;
+  isLoading: boolean &#x3D; false;
+  constructor(
+    private fb: FormBuilder,
+    private callApiS: CallApiService,
+    private StateLoginS: StateLoginService,
+    private router: Router
+  ){
+
+  }
+
+  ngOnInit(): void {
+    console.log(&#x27;hallo login&#x27;)
+    this.formLogin();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy.next();
+    this.destroy.complete();
+  }
+
+  formLogin() {
+    this.loginPpdbForm &#x3D; this.fb.group({
+      &#x27;nik&#x27;: [{ value: null, disabled: false }, [Validators.required]],
+      &#x27;pin&#x27;: [{ value: null, disabled: false }, [Validators.required]],
+      // &#x27;g-recaptcha-response&#x27;: [&#x27;&#x27;, [Validators.required]]
+    })
+  }
+
+  get nikControl() {
+    return this.loginPpdbForm.get(&#x27;nik&#x27;)!;
+  }
+
+  get noNik() {
+    return this.nikControl.hasError(&#x27;required&#x27;) &amp;&amp; this.nikControl.touched;
+  }
+
+  get pinControl() {
+    return this.loginPpdbForm.get(&#x27;pin&#x27;)!;
+  }
+
+  get noPin() {
+    return this.pinControl.hasError(&#x27;required&#x27;) &amp;&amp; this.pinControl.touched;
+  }
+
+  // get recaptchaControl() {
+  //   return this.loginPpdbForm.get(&#x27;g-recaptcha-response&#x27;)!;
+  // }
+
+  // get noRecaptcha() {
+  //   return this.recaptchaControl.hasError(&#x27;required&#x27;) &amp;&amp; this.recaptchaControl.touched;
+  // }
+
+  recaptchaSuccess(ev: string) {
+    this.loginPpdbForm.patchValue({ &#x27;g-recaptcha-response&#x27;: ev })
+  }
+
+  cancel() {
+    console.log(&#x27;cancel action&#x27;);
+    this.formLogin();
+  }
+
+  submit() {
+    of(this.loginPpdbForm.valid)
+    .pipe(
+      tap(() &#x3D;&gt; this.isLoading &#x3D; true),
+      map(n &#x3D;&gt; {
+        if (!n) {
+          Object.values(this.loginPpdbForm.controls).forEach(control &#x3D;&gt; {
+            control.markAsTouched();
+          });
+          throw new Error(&#x27;harap mengisi form data&#x27;);
+        }
+        return n;
+      }),
+      tap((r) &#x3D;&gt; {
+        this.loginPpdbFormData &#x3D; new FormData();
+        this.loginPpdbFormData.append(&#x27;nik&#x27;, this.loginPpdbForm.get(&#x27;nik&#x27;)?.value)
+        this.loginPpdbFormData.append(&#x27;pin&#x27;, this.loginPpdbForm.get(&#x27;pin&#x27;)?.value)
+        // this.loginPpdbFormData.append(&#x27;g-recaptcha-response&#x27;, this.loginPpdbForm.get(&#x27;g-recaptcha-response&#x27;)?.value)
+      }),
+      switchMap(() &#x3D;&gt; this.callApiS.post(this.loginPpdbFormData, &#x27;daftar/login&#x27;)),
+      tap(() &#x3D;&gt; this.isLoading &#x3D; false),
+      tap(() &#x3D;&gt; this.formLogin()),
+      tap((r:any) &#x3D;&gt; this.StateLoginS.updateLogin(r.data)),
+      tap(() &#x3D;&gt; this.router.navigate([&#x27;dasbor&#x27;])),
+      catchError((e) &#x3D;&gt; {
+        this.isLoading &#x3D; false;
+        this.actionMessageError &#x3D; true;
+        this.messageError &#x3D; e.message &#x3D;&#x3D;&#x3D; &#x27;harap mengisi form data&#x27; ? e.message : e.error.message ;
+        throw e;
+      }),
+      takeUntil(this.destroy)
+    ).subscribe()
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;bg-gray-50 mt-28 md:mt-8&quot;&gt;
+    &lt;div class&#x3D;&quot;flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0&quot;&gt;
+        &lt;div class&#x3D;&quot;w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0&quot;&gt;
+            &lt;div class&#x3D;&quot;p-6 space-y-4 md:space-y-6 sm:p-8&quot;&gt;
+                &lt;h1 class&#x3D;&quot;text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl&quot;&gt;
+                    Sign in to Dashboard
+                &lt;/h1&gt;
+                &lt;ng-container *ngIf&#x3D;&quot;actionMessageError&quot;&gt;
+                    &lt;div class&#x3D;&quot;p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50&quot; role&#x3D;&quot;alert&quot;&gt;
+                        &lt;span class&#x3D;&quot;font-medium&quot;&gt;Info alert!&lt;/span&gt; {{messageError}}
+                    &lt;/div&gt;
+                &lt;/ng-container&gt;
+                &lt;form class&#x3D;&quot;space-y-4 md:space-y-6&quot; [formGroup]&#x3D;&quot;loginPpdbForm&quot; #formDir&#x3D;&quot;ngForm&quot; (submit)&#x3D;&quot;submit()&quot;&gt;
+                    &lt;div&gt;
+                        &lt;label for&#x3D;&quot;nik&quot; class&#x3D;&quot;block mb-2 text-sm font-medium text-gray-900&quot;&gt;
+                            NIK
+                            &lt;span class&#x3D;&quot;text-red-500&quot;&gt;*&lt;/span&gt;
+                        &lt;/label&gt;
+                        &lt;input ppdbInputHanyaNomor [maxLength]&#x3D;&quot;16&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;nik&quot; id&#x3D;&quot;nik&quot;
+                            class&#x3D;&quot;bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5&quot;
+                            placeholder&#x3D;&quot;NIK&quot; formControlName&#x3D;&quot;nik&quot; /&gt;
+                        &lt;ng-container *ngIf&#x3D;&quot;noNik&quot;&gt;
+                            &lt;div class&#x3D;&quot;mt-1 flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50&quot;
+                                role&#x3D;&quot;alert&quot;&gt;
+                                &lt;svg class&#x3D;&quot;flex-shrink-0 inline w-4 h-4 me-3&quot; aria-hidden&#x3D;&quot;true&quot;
+                                    xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; fill&#x3D;&quot;currentColor&quot; viewBox&#x3D;&quot;0 0 20 20&quot;&gt;
+                                    &lt;path
+                                        d&#x3D;&quot;M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z&quot; /&gt;
+                                &lt;/svg&gt;
+                                &lt;span class&#x3D;&quot;sr-only&quot;&gt;Info&lt;/span&gt;
+                                &lt;div&gt;
+                                    &lt;span class&#x3D;&quot;font-medium&quot;&gt;Danger alert!&lt;/span&gt; NIK harap diisi
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/ng-container&gt;
+                    &lt;/div&gt;
+
+                    &lt;div&gt;
+                        &lt;label for&#x3D;&quot;nip&quot; class&#x3D;&quot;block mb-2 text-sm font-medium text-gray-900&quot;&gt;
+                            PIN
+                            &lt;span class&#x3D;&quot;text-red-500&quot;&gt;*&lt;/span&gt;
+                        &lt;/label&gt;
+                        &lt;input [maxLength]&#x3D;&quot;16&quot; type&#x3D;&quot;text&quot; name&#x3D;&quot;pin&quot; id&#x3D;&quot;pin&quot;
+                            class&#x3D;&quot;bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5&quot;
+                            placeholder&#x3D;&quot;PIN&quot; formControlName&#x3D;&quot;pin&quot; /&gt;
+                        &lt;ng-container *ngIf&#x3D;&quot;noPin&quot;&gt;
+                            &lt;div class&#x3D;&quot;mt-1 flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 &quot;
+                                role&#x3D;&quot;alert&quot;&gt;
+                                &lt;svg class&#x3D;&quot;flex-shrink-0 inline w-4 h-4 me-3&quot; aria-hidden&#x3D;&quot;true&quot;
+                                    xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; fill&#x3D;&quot;currentColor&quot; viewBox&#x3D;&quot;0 0 20 20&quot;&gt;
+                                    &lt;path
+                                        d&#x3D;&quot;M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z&quot; /&gt;
+                                &lt;/svg&gt;
+                                &lt;span class&#x3D;&quot;sr-only&quot;&gt;Info&lt;/span&gt;
+                                &lt;div&gt;
+                                    &lt;span class&#x3D;&quot;font-medium&quot;&gt;Danger alert!&lt;/span&gt; NIP harap diisi
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/ng-container&gt;
+                    &lt;/div&gt;
+                    &lt;!-- &lt;div&gt;
+                        &lt;ngx-recaptcha2 #captchaElem [siteKey]&#x3D;&quot;captchaSiteKey&quot; [useGlobalDomain]&#x3D;&quot;false&quot;
+                            (success)&#x3D;&quot;recaptchaSuccess($event)&quot; formControlName&#x3D;&quot;g-recaptcha-response&quot;&gt;
+                        &lt;/ngx-recaptcha2&gt;
+                        &lt;ng-container *ngIf&#x3D;&quot;noRecaptcha&quot;&gt;
+                            &lt;div class&#x3D;&quot;mt-1 flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50&quot;
+                                role&#x3D;&quot;alert&quot;&gt;
+                                &lt;svg class&#x3D;&quot;flex-shrink-0 inline w-4 h-4 me-3&quot; aria-hidden&#x3D;&quot;true&quot;
+                                    xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; fill&#x3D;&quot;currentColor&quot; viewBox&#x3D;&quot;0 0 20 20&quot;&gt;
+                                    &lt;path
+                                        d&#x3D;&quot;M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z&quot; /&gt;
+                                &lt;/svg&gt;
+                                &lt;span class&#x3D;&quot;sr-only&quot;&gt;Info&lt;/span&gt;
+                                &lt;div&gt;
+                                    &lt;span class&#x3D;&quot;font-medium&quot;&gt;Danger alert!&lt;/span&gt; recaptcha harap diisi
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/ng-container&gt;
+                    &lt;/div&gt; --&gt;
+                    &lt;button type&#x3D;&quot;submit&quot;
+                        class&#x3D;&quot;w-full text-white bg-primary-bg hover:bg-primary-bg-hv hover:text-primary-txt font-medium rounded-lg text-sm px-5 py-2.5 text-center&quot;&gt;
+                        &lt;ng-container *ngIf&#x3D;&quot;!isLoading&quot;&gt;
+                            Masuk
+                        &lt;/ng-container&gt;
+                        &lt;ng-container *ngIf&#x3D;&quot;isLoading&quot;&gt;
+                            &lt;svg aria-hidden&#x3D;&quot;true&quot; role&#x3D;&quot;status&quot; class&#x3D;&quot;inline w-4 h-4 me-3 text-white animate-spin&quot;
+                                viewBox&#x3D;&quot;0 0 100 101&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                                &lt;path
+                                    d&#x3D;&quot;M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z&quot;
+                                    fill&#x3D;&quot;#E5E7EB&quot; /&gt;
+                                &lt;path
+                                    d&#x3D;&quot;M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z&quot;
+                                    fill&#x3D;&quot;currentColor&quot; /&gt;
+                            &lt;/svg&gt;
+                            Loading...
+                        &lt;/ng-container&gt;
+                    &lt;/button&gt;
+                    &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;cancel()&quot;
+                        class&#x3D;&quot;w-full text-secondary-1 bg-secondary-main hover:bg-primary-main hover:text-primary-1 font-medium rounded-lg text-sm px-5 py-2.5 text-center&quot;&gt;
+                        Cancel
+                    &lt;/button&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section class="bg-gray-50 mt-28 md:mt-8">    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">        <div class="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0">            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">                    Sign in to Dashboard                </h1>                <ng-container *ngIf="actionMessageError">                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">                        <span class="font-medium">Info alert!</span> {{messageError}}                    </div>                </ng-container>                <form class="space-y-4 md:space-y-6" [formGroup]="loginPpdbForm" #formDir="ngForm" (submit)="submit()">                    <div>                        <label for="nik" class="block mb-2 text-sm font-medium text-gray-900">                            NIK                            <span class="text-red-500">*</span>                        </label>                        <input ppdbInputHanyaNomor [maxLength]="16" type="text" name="nik" id="nik"                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"                            placeholder="NIK" formControlName="nik" />                        <ng-container *ngIf="noNik">                            <div class="mt-1 flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50"                                role="alert">                                <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true"                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">                                    <path                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />                                </svg>                                <span class="sr-only">Info</span>                                <div>                                    <span class="font-medium">Danger alert!</span> NIK harap diisi                                </div>                            </div>                        </ng-container>                    </div>                    <div>                        <label for="nip" class="block mb-2 text-sm font-medium text-gray-900">                            PIN                            <span class="text-red-500">*</span>                        </label>                        <input [maxLength]="16" type="text" name="pin" id="pin"                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"                            placeholder="PIN" formControlName="pin" />                        <ng-container *ngIf="noPin">                            <div class="mt-1 flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 "                                role="alert">                                <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true"                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">                                    <path                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />                                </svg>                                <span class="sr-only">Info</span>                                <div>                                    <span class="font-medium">Danger alert!</span> NIP harap diisi                                </div>                            </div>                        </ng-container>                    </div>                    <!-- <div>                        <ngx-recaptcha2 #captchaElem [siteKey]="captchaSiteKey" [useGlobalDomain]="false"                            (success)="recaptchaSuccess($event)" formControlName="g-recaptcha-response">                        </ngx-recaptcha2>                        <ng-container *ngIf="noRecaptcha">                            <div class="mt-1 flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50"                                role="alert">                                <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true"                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">                                    <path                                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />                                </svg>                                <span class="sr-only">Info</span>                                <div>                                    <span class="font-medium">Danger alert!</span> recaptcha harap diisi                                </div>                            </div>                        </ng-container>                    </div> -->                    <button type="submit"                        class="w-full text-white bg-primary-bg hover:bg-primary-bg-hv hover:text-primary-txt font-medium rounded-lg text-sm px-5 py-2.5 text-center">                        <ng-container *ngIf="!isLoading">                            Masuk                        </ng-container>                        <ng-container *ngIf="isLoading">                            <svg aria-hidden="true" role="status" class="inline w-4 h-4 me-3 text-white animate-spin"                                viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">                                <path                                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"                                    fill="#E5E7EB" />                                <path                                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"                                    fill="currentColor" />                            </svg>                            Loading...                        </ng-container>                    </button>                    <button type="button" (click)="cancel()"                        class="w-full text-secondary-1 bg-secondary-main hover:bg-primary-main hover:text-primary-1 font-medium rounded-lg text-sm px-5 py-2.5 text-center">                        Cancel                    </button>                </form>            </div>        </div>    </div></section></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'ppdb-root'},{'name': 'BerandaComponent', 'selector': 'ppdb-beranda'},{'name': 'DasborComponent', 'selector': 'ppdb-dasbor'},{'name': 'DasborComponent', 'selector': 'ppdb-dasbor'},{'name': 'FormHasilSeleksiUtamaComponent', 'selector': 'ppdb-form-hasil-seleksi-utama'},{'name': 'FormPilihSekolahDasborComponent', 'selector': 'ppdb-form-pilih-sekolah-dasbor'},{'name': 'Halaman403Component', 'selector': 'ppdb-halaman-403'},{'name': 'Halaman404Component', 'selector': 'ppdb-halaman-404'},{'name': 'Halaman500Component', 'selector': 'ppdb-halaman-500'},{'name': 'HasilSeleksiComponent', 'selector': 'ppdb-hasil-seleksi'},{'name': 'HasilSeleksiSayaDasborComponent', 'selector': 'ppdb-hasil-seleksi-saya-dasbor'},{'name': 'HeaderMobileUtamaComponent', 'selector': 'ppdb-header-mobile-utama'},{'name': 'HeaderUtamaComponent', 'selector': 'ppdb-header-utama'},{'name': 'HeroUtamaComponent', 'selector': 'ppdb-hero-utama'},{'name': 'JadwalComponent', 'selector': 'ppdb-jadwal'},{'name': 'KonfirmasiFormPilihSekolahDasborComponent', 'selector': 'ppdb-konfirmasi-form-pilih-sekolah-dasbor'},{'name': 'LoginComponent', 'selector': 'ppdb-login'},{'name': 'ProsesComponent', 'selector': 'ppdb-proses'},{'name': 'RegulasiComponent', 'selector': 'ppdb-regulasi'},{'name': 'ResponModalComponent', 'selector': 'ppdb-respon-modal'},{'name': 'SidebarDasborComponent', 'selector': 'ppdb-sidebar-dasbor'},{'name': 'SupportUsUtamaComponent', 'selector': 'ppdb-support-us-utama'},{'name': 'UtamaComponent', 'selector': 'ppdb-utama'}];
+    var DIRECTIVES = [{'name': 'InputHanyaNomorDirective', 'selector': '[ppdbInputHanyaNomor]'},{'name': 'SidebarDropdownDirective', 'selector': '[ppdbSidebarDropdown]'}];
+    var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

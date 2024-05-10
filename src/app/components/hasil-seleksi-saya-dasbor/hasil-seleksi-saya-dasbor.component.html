@@ -1,0 +1,214 @@
+<ng-container>
+    <h3 class="mb-8 text-2xl md:text-3xl font-bold dark:text-white">Biodata</h3>
+    <div class="grid mb-8 sm:grid-cols-1 divide-y divide-gray-100 border border-gray-300 rounded-lg">
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    NISN
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.nisn}}</div>
+        </div>
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    NIK
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.nik}}</div>
+        </div>
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Nama Lengkap
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.nama_lengkap}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Jenis Kelamin
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.jenis_kelamin}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Tempat, Tanggal Lahir
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{user.tempat_lahir}}, {{user.tanggal_lahir}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Alamat
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 p-2.5">
+                <a class='font-medium text-md hover:underline' [href]="user.alamat.place" target="_blank"
+                    rel="noopener noreferrer">
+                    <p class="mb-2 text-xs text-gray-500">
+                        Lihat map
+                    </p>
+                </a>
+                <div class="text-blue-900 text-sm block w-full">
+                    {{user.alamat.detail}}, RT {{user.alamat.rt}}/ RW {{user.alamat.rw}}, kelurahan
+                    {{user.alamat.kelurahan}}, kecamatan {{user.alamat.kecamatan}}, kabupaten {{user.alamat.kabupaten}},
+                    provinsi {{user.alamat.provinsi}}</div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mb-8 text-2xl md:text-3xl font-bold dark:text-white">Hasil Seleksi - {{pilihMenu.menu}}</h3>
+    <!-- <p class="mb-8 text-sm font-normal text-gray-500 lg:text-sm dark:text-gray-400">Tanggal Pendaftaran
+        {{hasilSeleksiSaya.tgl_daftar}}</p> -->
+    <div class="grid mb-8 sm:grid-cols-1 divide-y divide-gray-100 border border-gray-300 rounded-lg">
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Tanggal Daftar
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{hasilSeleksiSaya.tgl_daftar}}</div>
+        </div>
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Tahap
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{hasilSeleksiSaya.tahap}}</div>
+        </div>
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Sekolah
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{hasilSeleksiSaya.sekolah}}</div>
+        </div>
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Nilai Rapor
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{hasilSeleksiSaya.nilai_rapor?.length === 0 ? '-':hasilSeleksiSaya.nilai_rapor}}</div>
+        </div>
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Nilai Jarak
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{hasilSeleksiSaya.nilai_jarak?.length === 0 ? '-':hasilSeleksiSaya.nilai_jarak}}</div>
+        </div>
+        
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Nilai Prestasi
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{hasilSeleksiSaya.nilai_prestasi?.length === 0 ? '-':hasilSeleksiSaya.nilai_prestasi}}</div>
+        </div>
+        
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Urutan
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{hasilSeleksiSaya.urutan}}</div>
+        </div>
+        
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Status
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{hasilSeleksiSaya.status}}</div>
+        </div>
+        
+        <div class="grid gap-2 grid-cols-4">
+            <div class="mt-2 flex flex-row justify-between">
+                <label class="ml-4 text-sm font-medium text-blue-900">
+                    Ket
+                </label>
+                <label class="text-sm font-medium text-blue-900">
+                    :
+                </label>
+            </div>
+            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
+                {{hasilSeleksiSaya.ket}}</div>
+        </div>
+
+        <div class="grid gap-2 grid-cols-4 p-4">
+            <a [href]="url" target="_blank" rel="noopener noreferrer"
+                class="hover:underline cursor-pointer hover:text-thirty-bg font-bold ml-2 col-span-4 bg-primary-bg text-primary-txt  text-sm rounded-lg w-auto p-2.5 text-center">
+                Cetak Bukti Daftar</a>
+        </div>
+    </div>
+</ng-container>

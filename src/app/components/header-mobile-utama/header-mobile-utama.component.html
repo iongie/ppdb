@@ -1,0 +1,102 @@
+<div class="block" role="dialog" aria-modal="true">
+    <!-- Background backdrop, show/hide based on slide-over state. -->
+    <div class="fixed inset-0 z-50"></div>
+    <div
+        class="header-mobile-pattern fixed inset-y-0 right-0 z-50 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-pritext-primary-bg/10">
+        <div class="flex items-center justify-between ">
+            <a routerLink="#" class="-m-1.5 p-1.5">
+                <span class="sr-only">PPDB</span>
+                <img class="h-8 w-auto" src="../assets/logodikbud.png" alt="">
+            </a>
+            <button (click)="menu()" type="button" class="-m-2.5 rounded-md p-2.5 text-primary-txt">
+                <span class="sr-only">Close menu</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div class="mt-6 flow-root">
+            <div class="-my-6 divide-thirty-bg divide-y divide-gray-500/10">
+                <div class="space-y-2 py-6">
+                    <a routerLink="/"
+                        class="-mx-3 block rounded-lg px-3 py-2 font-medium leading-7 text-white hover:bg-thirty-bg hover:text-secondary-txt">
+                        <span class="flex flex-row items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5  mr-2 -ml-1">
+                                <path fill-rule="evenodd"
+                                    d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            Beranda
+                        </span>
+                    </a>
+                    <a routerLink="/regulasi-ppdb"
+                        class="-mx-3 block rounded-lg px-3 py-2 font-medium leading-7 text-white hover:bg-thirty-bg hover:text-secondary-txt">
+                        <span class="flex flex-row items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-5 h-5  mr-2 -ml-1">
+                                <path fill-rule="evenodd"
+                                    d="M2 3.5A1.5 1.5 0 0 1 3.5 2h9A1.5 1.5 0 0 1 14 3.5v11.75A2.75 2.75 0 0 0 16.75 18h-12A2.75 2.75 0 0 1 2 15.25V3.5Zm3.75 7a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5Zm0 3a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5ZM5 5.75A.75.75 0 0 1 5.75 5h4.5a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-.75.75h-4.5A.75.75 0 0 1 5 8.25v-2.5Z"
+                                    clip-rule="evenodd" />
+                                <path d="M16.5 6.5h-1v8.75a1.25 1.25 0 1 0 2.5 0V8a1.5 1.5 0 0 0-1.5-1.5Z" />
+                            </svg>
+                            Regulasi
+                        </span>
+                    </a>
+                    <a routerLink="/jadwal-ppdb"
+                        class="-mx-3 block rounded-lg px-3 py-2 font-medium leading-7 text-white hover:bg-thirty-bg hover:text-secondary-txt">
+                        <span class="flex flex-row items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-5 h-5  mr-2 -ml-1">
+                                <path
+                                    d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
+                                <path fill-rule="evenodd"
+                                    d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            Jadwal
+                        </span>
+                    </a>
+                    <a [href]="safeUrlppdb" target="_blank" rel="noopener noreferrer"
+                        class="-mx-3 block rounded-lg px-3 py-2 font-medium leading-7 text-white hover:bg-thirty-bg hover:text-secondary-txt">
+                        <span class="flex flex-row items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-5 h-5  mr-2 -ml-1">
+                                <path fill-rule="evenodd"
+                                    d="M19.902 4.098a3.75 3.75 0 0 0-5.304 0l-4.5 4.5a3.75 3.75 0 0 0 1.035 6.037.75.75 0 0 1-.646 1.353 5.25 5.25 0 0 1-1.449-8.45l4.5-4.5a5.25 5.25 0 1 1 7.424 7.424l-1.757 1.757a.75.75 0 1 1-1.06-1.06l1.757-1.757a3.75 3.75 0 0 0 0-5.304Zm-7.389 4.267a.75.75 0 0 1 1-.353 5.25 5.25 0 0 1 1.449 8.45l-4.5 4.5a5.25 5.25 0 1 1-7.424-7.424l1.757-1.757a.75.75 0 1 1 1.06 1.06l-1.757 1.757a3.75 3.75 0 1 0 5.304 5.304l4.5-4.5a3.75 3.75 0 0 0-1.035-6.037.75.75 0 0 1-.354-1Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            Pra PPDB
+                        </span>
+                    </a>
+                    <a routerLink="/hasil-seleksi"
+                        class="-mx-3 block rounded-lg px-3 py-2 font-medium leading-7 text-white hover:bg-thirty-bg hover:text-secondary-txt">
+                        <span class="flex flex-row items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5  mr-2 -ml-1">
+                                <path fill-rule="evenodd"
+                                  d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+                                  clip-rule="evenodd" />
+                              </svg>
+                            Hasil Seleksi
+                        </span>
+                    </a>
+                </div>
+                <div class="py-6">
+                    <a routerLink="/sign-in-dashboard"
+                        class="cursor-pointer -mx-3 block rounded-lg px-3 py-2.5 font-medium leading-7 text-white hover:bg-thirty-bg hover:text-secondary-txt">
+                        <span class="flex flex-row items-center">
+                            Login 
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-5 h-5  ml-2 -mr-1">
+                                <path fill-rule="evenodd"
+                                    d="M19.902 4.098a3.75 3.75 0 0 0-5.304 0l-4.5 4.5a3.75 3.75 0 0 0 1.035 6.037.75.75 0 0 1-.646 1.353 5.25 5.25 0 0 1-1.449-8.45l4.5-4.5a5.25 5.25 0 1 1 7.424 7.424l-1.757 1.757a.75.75 0 1 1-1.06-1.06l1.757-1.757a3.75 3.75 0 0 0 0-5.304Zm-7.389 4.267a.75.75 0 0 1 1-.353 5.25 5.25 0 0 1 1.449 8.45l-4.5 4.5a5.25 5.25 0 1 1-7.424-7.424l1.757-1.757a.75.75 0 1 1 1.06 1.06l-1.757 1.757a3.75 3.75 0 1 0 5.304 5.304l4.5-4.5a3.75 3.75 0 0 0-1.035-6.037.75.75 0 0 1-.354-1Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

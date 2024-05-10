@@ -1,0 +1,17 @@
+<div class="py-8 md:ml-14 md mx-auto max-w-screen-xl text-start">
+    <ng-container *ngIf="!menuHasilSeleksiSaya">
+        <ng-container *ngIf="menuPilihSekolah || menuGantiSekolah">
+            <ppdb-form-pilih-sekolah-dasbor [title]="title" (viewKonfirmasi)="getKonfirmasi($event)"></ppdb-form-pilih-sekolah-dasbor>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="menuHasilSeleksiSaya">
+        <ppdb-hasil-seleksi-saya-dasbor></ppdb-hasil-seleksi-saya-dasbor>
+    </ng-container>
+    
+    <ng-container *ngIf="viewKonfirmasi">
+        <ppdb-konfirmasi-form-pilih-sekolah-dasbor (viewRespon)="getRespon($event)" (viewKonfirmasi)="getKonfirmasi($event)"></ppdb-konfirmasi-form-pilih-sekolah-dasbor>
+    </ng-container>
+    <ng-container *ngIf="viewRespon">
+        <ppdb-respon-modal></ppdb-respon-modal>
+    </ng-container>
+</div>
