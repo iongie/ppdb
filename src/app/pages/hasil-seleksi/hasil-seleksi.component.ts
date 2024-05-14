@@ -13,6 +13,8 @@ import { StateHasilSeleksiService } from '../../services/state-hasil-seleksi/sta
 export class HasilSeleksiComponent implements OnInit, OnDestroy {
   private destroy: Subject<void> = new Subject<void>;
   hasilSeleksi: HasilSeleksi = defHasilSeleksi;
+  tooltipVisible:any[] = []
+
   constructor(
     private hasilSeleksiS: StateHasilSeleksiService
   ){}
@@ -31,8 +33,17 @@ export class HasilSeleksiComponent implements OnInit, OnDestroy {
     .pipe(
       tap((m:any) => {
         this.hasilSeleksi = m
+        this.tooltipVisible = new Array(this.hasilSeleksi.peserta.length).fill(false);
       }),
       takeUntil(this.destroy)
     ).subscribe()
+  }
+
+  showTooltip(index: number) {
+    this.tooltipVisible[index] = true;
+  }
+
+  hideTooltip(index: number) {
+    this.tooltipVisible[index] = false;
   }
 }

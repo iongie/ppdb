@@ -4,6 +4,9 @@ interface Ranking {
     num: number | null;
     kuota: number | null;
     created_at: string | null;
+    date: string | null;
+    c_final: number | null;
+    ket: string | null;
 }
 
 const defRanking: Ranking = {
@@ -11,7 +14,26 @@ const defRanking: Ranking = {
     n_file:  null,
     num: null,
     kuota: null,
-    created_at: null
+    created_at: null,
+    date: null,
+    c_final: null,
+    ket: null,
+}
+
+interface Surat{
+    id: number | null;
+    title: string | null;
+    deskripsi: string | null;
+    file: string | null;
+    link: string | null;
+}
+
+const defSurat: Surat = {
+    id: null,
+    title: null,
+    deskripsi: null,
+    file: null,
+    link: null
 }
 
 interface Peserta {
@@ -54,17 +76,21 @@ const defPeserta : Peserta[] = []
 
 interface HasilSeleksi {
     ranking: Ranking;
+    surat: Surat;
     peserta: Peserta[]
 }
 
 const defHasilSeleksi: HasilSeleksi = {
     ranking: defRanking,
+    surat: defSurat,
     peserta: defPeserta
 }
 
 export {
     Ranking,
     defRanking,
+    Surat,
+    defSurat,
     Peserta,
     defPeserta,
     HasilSeleksi,

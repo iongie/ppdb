@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { HasilSeleksi, defHasilSeleksi } from '../../interfaces/hasil-seleksi.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StateHasilSeleksiService {
-  hasilSeleksi = new BehaviorSubject<HasilSeleksi>(defHasilSeleksi);
+  hasilSeleksi = new Subject<HasilSeleksi>();
   getHasilSeleksi = this.hasilSeleksi.asObservable()
   constructor() { }
 
