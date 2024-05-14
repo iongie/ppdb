@@ -29,7 +29,7 @@ export class FormHasilSeleksiUtamaComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private callApiS: CallApiService,
     private hasilSeleksiS: StateHasilSeleksiService
-  ){}
+  ) { }
 
 
   ngOnInit(): void {
@@ -114,38 +114,41 @@ export class FormHasilSeleksiUtamaComponent implements OnInit, OnDestroy {
     this.getKategori();
   }
 
-  submit(){
+  submit() {
     of(this.hasilSeleksiPpdbForm.valid)
-    .pipe(
-      tap(() => this.isLoading = true),
-      map(n => {
-        if (!n) {
-          Object.values(this.hasilSeleksiPpdbForm.controls).forEach(control => {
-            control.markAsTouched();
-          });
-          throw new Error('harap mengisi form data');
-        }
-        return n;
-      }),
-      tap((r) => {
-        this.hasilSeleksiPpdbFormData = new FormData();
-        this.hasilSeleksiPpdbFormData.append('tmsekolah_id', this.hasilSeleksiPpdbForm.get('tmsekolah_id')?.value)
-        this.hasilSeleksiPpdbFormData.append('tmdaftarkategori_id', this.hasilSeleksiPpdbForm.get('tmdaftarkategori_id')?.value)
-      }),
-      switchMap(() => this.callApiS.post(this.hasilSeleksiPpdbFormData, 'pengumuman/pendaftar')),
-      tap((r:any) => {
-        this.isLoading = false;
-        this.hasilSeleksiS.updateHasilSeleksi(r.data)
-      }),
-      catchError((e) => {
-        this.isLoading = false;
-        this.hasilSeleksiS.clearHasilSeleksi()
-        this.actionMessageError = true;
-        this.messageError = e.message === 'harap mengisi form data' ? e.message : e.error.message ;
-        throw e;
-      }),
-      takeUntil(this.destroy)
-    ).subscribe()
+      .pipe(
+        tap(() => {
+          this.isLoading = true;
+          this.actionMessageError = false;
+        }),
+        map(n => {
+          if (!n) {
+            Object.values(this.hasilSeleksiPpdbForm.controls).forEach(control => {
+              control.markAsTouched();
+            });
+            throw new Error('harap mengisi form data');
+          }
+          return n;
+        }),
+        tap((r) => {
+          this.hasilSeleksiPpdbFormData = new FormData();
+          this.hasilSeleksiPpdbFormData.append('tmsekolah_id', this.hasilSeleksiPpdbForm.get('tmsekolah_id')?.value)
+          this.hasilSeleksiPpdbFormData.append('tmdaftarkategori_id', this.hasilSeleksiPpdbForm.get('tmdaftarkategori_id')?.value)
+        }),
+        switchMap(() => this.callApiS.post(this.hasilSeleksiPpdbFormData, 'pengumuman/pendaftar')),
+        tap((r: any) => {
+          this.isLoading = false;
+          this.hasilSeleksiS.updateHasilSeleksi(r.data)
+        }),
+        catchError((e) => {
+          this.isLoading = false;
+          this.hasilSeleksiS.clearHasilSeleksi()
+          this.actionMessageError = true;
+          this.messageError = e.message === 'harap mengisi form data' ? e.message : e.error.message;
+          throw e;
+        }),
+        takeUntil(this.destroy)
+      ).subscribe()
   }
 
 }
