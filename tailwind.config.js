@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       spacing: {
         '128': '32rem',
+        '256': '64rem',
       },
       keyframes: {
         'slide-in-right': {
@@ -48,6 +49,9 @@ module.exports = {
         },
         fourty: {
           "bg": '#E0B963'
+        },
+        'same-header': {
+          "bg": "#2552ac"
         }
       }
     },

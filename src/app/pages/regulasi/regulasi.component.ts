@@ -14,6 +14,8 @@ export class RegulasiComponent {
   ){}
 
   ngOnInit(): void {
-    this.safeDocsAlur = this.sanitizer.bypassSecurityTrustResourceUrl(environment.URL_REGULASI_PPDB)
+    console.log(Date.now());
+    
+    this.safeDocsAlur = this.sanitizer.bypassSecurityTrustResourceUrl(environment.URL_REGULASI_PPDB+Date.now().toString())
   }
 }

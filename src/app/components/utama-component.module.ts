@@ -4,12 +4,14 @@ import { HeroUtamaComponent } from './hero-utama/hero-utama.component';
 import { SupportUsUtamaComponent } from './support-us-utama/support-us-utama.component';
 import { RouterModule } from '@angular/router';
 import { InfoTahapanUtamaComponent } from './info-tahapan-utama/info-tahapan-utama.component';
+import { InfoJadwalUtamaComponent } from './info-jadwal-utama/info-jadwal-utama.component';
 
 @NgModule({
   declarations: [
     HeroUtamaComponent,
     SupportUsUtamaComponent,
-    InfoTahapanUtamaComponent
+    InfoTahapanUtamaComponent,
+    InfoJadwalUtamaComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { InfoTahapanUtamaComponent } from './info-tahapan-utama/info-tahapan-uta
   exports:[
     HeroUtamaComponent,
     SupportUsUtamaComponent,
-    InfoTahapanUtamaComponent
+    InfoTahapanUtamaComponent,
+    InfoJadwalUtamaComponent
   ]
 })
 export class ComponentUtamaModule { }
