@@ -1,0 +1,191 @@
+<div class="relative p-4 w-auto max-h-full">
+    <div class="relative bg-white rounded-lg shadow w-full h-auto p-4">
+        <div class="flex flex-row justify-between items-center mb-8 ">
+            <h3 class="text-2xl md:text-3xl font-bold">Detail Data Calon Siswa</h3>
+            <button (click)="closeModal()" type="button" class="rounded hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                    class="w-6 h-6 text-gray-500">
+                    <path fill-rule="evenodd"
+                        d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+        <div class="flex flex-col items-center justify-between w-full max-h-96 overflow-x-hidden overflow-y-scroll">
+            <div class="mx-auto w-full text-start">
+                <h6 class="mb-8 text-lg md:text-xl font-medium">Data Siswa</h6>
+                <div class="grid  sm:grid-cols-2 items-start md:gap-8 mb-8 rounded-lg">
+                    <div class="grid mb-8 sm:grid-cols-1 divide-y divide-gray-100 border border-gray-300 rounded-lg">
+                        <div class="grid gap-2 grid-cols-4 p-2.5">
+                            <div class="flex flex-row justify-between">
+                                <label class="text-sm font-medium text-blue-900">
+                                    NISN
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
+                                {{peserta.nisn}}
+                            </div>
+                        </div>
+                        <div class="grid gap-2 grid-cols-4 p-2.5">
+                            <div class="flex flex-row justify-between">
+                                <label class="text-sm font-medium text-blue-900">
+                                    Nama
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
+                                {{peserta.n_siswa}}
+                            </div>
+                        </div>
+                        <div class="grid gap-2 grid-cols-4 p-2.5">
+                            <div class="flex flex-row justify-between">
+                                <label class="text-sm font-medium text-blue-900">
+                                    Asal Sekolah
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
+                                {{peserta.sekolah_asal}}
+                            </div>
+                        </div>
+
+                        <div class="grid gap-2 grid-cols-4 p-2.5">
+                            <div class="flex flex-row justify-between">
+                                <label class="text-sm font-medium text-blue-900">
+                                    TTL
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
+                                {{peserta.t_lahir}}, {{peserta.d_lahir}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid mb-8 sm:grid-cols-1 divide-y divide-gray-100 border border-gray-300 rounded-lg">
+                        <div class="grid gap-2 grid-cols-4 p-2.5">
+                            <div class="flex flex-row justify-between">
+                                <label class="text-sm font-medium text-blue-900">
+                                    Nilai Jarak
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
+                                {{peserta.nilai_jarak}}
+                            </div>
+                        </div>
+                        <div class="grid gap-2 grid-cols-4 p-2.5">
+                            <div class="flex flex-row justify-between">
+                                <label class="text-sm font-medium text-blue-900">
+                                    Nilai Rapor
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
+                                {{peserta.nilai_rapor}}
+                            </div>
+                        </div>
+                        <div class="grid gap-2 grid-cols-4 p-2.5">
+                            <div class="flex flex-row justify-between">
+                                <label class="text-sm font-medium text-blue-900">
+                                    Nilai Prestasi
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
+                                {{peserta.nilai_prestasi}}
+                            </div>
+                        </div>
+
+                        <div class="grid gap-2 grid-cols-4 p-2.5">
+                            <div class="flex flex-row justify-between">
+                                <label class="text-sm font-medium text-blue-900">
+                                    Tanggal Daftar
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
+                                {{peserta.created_at}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mx-auto w-full text-start">
+                <h3 class="mb-8 text-lg md:text-xl font-medium">Data Penitikan</h3>
+                <div class="grid mb-8 sm:grid-cols-1 divide-y divide-gray-100 border border-gray-300 rounded-lg">
+                    <div class="grid gap-2 grid-cols-4 p-2.5">
+                        <div class="flex flex-row justify-between">
+                            <label class="text-sm font-medium text-blue-900">
+                                Latitude
+                            </label>
+                            <label class="text-sm font-medium text-blue-900">
+                                :
+                            </label>
+                        </div>
+                        <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
+                            {{peserta.lat}}
+                        </div>
+                    </div>
+                    <div class="grid gap-2 grid-cols-4 p-2.5">
+                        <div class="flex flex-row justify-between">
+                            <label class="text-sm font-medium text-blue-900">
+                                Longitude
+                            </label>
+                            <label class="text-sm font-medium text-blue-900">
+                                :
+                            </label>
+                        </div>
+                        <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
+                            {{peserta.long}}
+                        </div>
+                    </div>
+                    <div class="grid gap-2 grid-cols-4 p-2.5">
+                        <a [href]="'http://maps.google.com/maps?q='+peserta.lat+','+peserta.long" target="_blank"
+                            rel="noopener noreferrer" class="cursor-pointer col-end-5 col-span-1 flex flex-row gap-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-6 h-6">
+                                <path fill-rule="evenodd"
+                                    d="M8.161 2.58a1.875 1.875 0 0 1 1.678 0l4.993 2.498c.106.052.23.052.336 0l3.869-1.935A1.875 1.875 0 0 1 21.75 4.82v12.485c0 .71-.401 1.36-1.037 1.677l-4.875 2.437a1.875 1.875 0 0 1-1.676 0l-4.994-2.497a.375.375 0 0 0-.336 0l-3.868 1.935A1.875 1.875 0 0 1 2.25 19.18V6.695c0-.71.401-1.36 1.036-1.677l4.875-2.437ZM9 6a.75.75 0 0 1 .75.75V15a.75.75 0 0 1-1.5 0V6.75A.75.75 0 0 1 9 6Zm6.75 3a.75.75 0 0 0-1.5 0v8.25a.75.75 0 0 0 1.5 0V9Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <div class="text-blue-900 text-sm rounded-lg block w-full">
+                                Buka Pada Google Map
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="self-start">
+                <a [href]="'https://forms.gle/dv2AF9NLwUpyTx7r6'" target="_blank" rel="noopener noreferrer"
+                    class="cursor-pointer col-end-5 col-span-1 flex-row w-full sm:w-auto justify-center items-center inline-flex gap-3 text-white bg-red-500 hover:bg-primary-bg hover:text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd"
+                            d="m6.72 5.66 11.62 11.62A8.25 8.25 0 0 0 6.72 5.66Zm10.56 12.68L5.66 6.72a8.25 8.25 0 0 0 11.62 11.62ZM5.105 5.106c3.807-3.808 9.98-3.808 13.788 0 3.808 3.807 3.808 9.98 0 13.788-3.807 3.808-9.98 3.808-13.788 0-3.808-3.807-3.808-9.98 0-13.788Z"
+                            clip-rule="evenodd" />
+                    </svg>
+
+                    <div class="text-sm rounded-lg block w-full">
+                        Laporkan Calon Siswa
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

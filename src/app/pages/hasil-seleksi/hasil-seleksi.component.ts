@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil, tap } from 'rxjs';
-import { HasilSeleksi, defHasilSeleksi } from '../../interfaces/hasil-seleksi.interface';
-import { Kategori, defKategori } from '../../interfaces/kategori.interface';
-import { Sekolah, defSekolah } from '../../interfaces/sekolah.interface';
+import { HasilSeleksi, Peserta, defDetailPeserta, defHasilSeleksi } from '../../interfaces/hasil-seleksi.interface';
 import { StateHasilSeleksiService } from '../../services/state-hasil-seleksi/state-hasil-seleksi.service';
 
 @Component({
@@ -14,6 +12,9 @@ export class HasilSeleksiComponent implements OnInit, OnDestroy {
   private destroy: Subject<void> = new Subject<void>;
   hasilSeleksi: HasilSeleksi = defHasilSeleksi;
   tooltipVisible:any[] = []
+
+  detailPeserta: Peserta = defDetailPeserta;
+  viewDetailPeserta: boolean = false;
 
   constructor(
     private hasilSeleksiS: StateHasilSeleksiService
@@ -45,5 +46,14 @@ export class HasilSeleksiComponent implements OnInit, OnDestroy {
 
   hideTooltip(index: number) {
     this.tooltipVisible[index] = false;
+  }
+
+  openDetail(i: number){
+    this.detailPeserta = this.hasilSeleksi.peserta[i];
+    this.viewDetailPeserta = true;
+  }
+
+  getDetail(ev: boolean){
+    this.viewDetailPeserta = ev
   }
 }

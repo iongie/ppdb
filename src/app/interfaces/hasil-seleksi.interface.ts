@@ -73,6 +73,41 @@ interface Peserta {
 }
 
 const defPeserta : Peserta[] = []
+const defDetailPeserta: Peserta = {
+    id: null,
+    nik: null,
+    nisn: null,
+    n_siswa: null,
+    sekolah_asal: null,
+    t_lahir: null,
+    d_lahir: null,
+    alamat_detail: null,
+    lat: null,
+    long: null,
+    alamat_map: null,
+    tahap: null,
+    ordering: null,
+    c_lulus: null,
+    c_ganti: null,
+    nilai_jarak: null,
+    nilai_rapor: null,
+    nilai_prestasi: null,
+    total_agama: null,
+    total_ppkn: null,
+    total_indo: null,
+    total_mtk: null,
+    total_ipa: null,
+    total_ips: null,
+    total_opsi: null,
+    total_penjas: null,
+    total_nilai_rapor: null,
+    peringkat: null,
+    valid: null,
+    user_valid_id: null,
+    d_valid: null,
+    txt_valid: null,
+    created_at: null,
+}
 
 interface HasilSeleksi {
     ranking: Ranking;
@@ -93,6 +128,7 @@ export {
     defSurat,
     Peserta,
     defPeserta,
+    defDetailPeserta,
     HasilSeleksi,
     defHasilSeleksi
 }

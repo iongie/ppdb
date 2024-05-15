@@ -5,13 +5,15 @@ import { SupportUsUtamaComponent } from './support-us-utama/support-us-utama.com
 import { RouterModule } from '@angular/router';
 import { InfoTahapanUtamaComponent } from './info-tahapan-utama/info-tahapan-utama.component';
 import { InfoJadwalUtamaComponent } from './info-jadwal-utama/info-jadwal-utama.component';
+import { LihatHasilSeleksiDetailUtamaComponent } from './lihat-hasil-seleksi-detail-utama/lihat-hasil-seleksi-detail-utama.component';
 
 @NgModule({
   declarations: [
     HeroUtamaComponent,
     SupportUsUtamaComponent,
     InfoTahapanUtamaComponent,
-    InfoJadwalUtamaComponent
+    InfoJadwalUtamaComponent,
+    LihatHasilSeleksiDetailUtamaComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { InfoJadwalUtamaComponent } from './info-jadwal-utama/info-jadwal-utama.
     HeroUtamaComponent,
     SupportUsUtamaComponent,
     InfoTahapanUtamaComponent,
-    InfoJadwalUtamaComponent
+    InfoJadwalUtamaComponent,
+    LihatHasilSeleksiDetailUtamaComponent
   ]
 })
 export class ComponentUtamaModule { }
