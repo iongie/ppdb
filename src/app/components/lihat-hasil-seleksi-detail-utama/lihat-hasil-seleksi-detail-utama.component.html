@@ -14,7 +14,7 @@
         <div class="flex flex-col items-center justify-between w-full max-h-96 overflow-x-hidden overflow-y-scroll">
             <div class="mx-auto w-full text-start">
                 <h6 class="mb-8 text-lg md:text-xl font-medium">Data Siswa</h6>
-                <div class="grid  sm:grid-cols-2 items-start md:gap-8 mb-8 rounded-lg">
+                <div class="grid sm:grid-cols-2 items-start md:gap-8 mb-8 rounded-lg">
                     <div class="grid mb-8 sm:grid-cols-1 divide-y divide-gray-100 border border-gray-300 rounded-lg">
                         <div class="grid gap-2 grid-cols-4 p-2.5">
                             <div class="flex flex-row justify-between">
@@ -129,46 +129,76 @@
             </div>
             <div class="mx-auto w-full text-start">
                 <h3 class="mb-8 text-lg md:text-xl font-medium">Data Penitikan</h3>
-                <div class="grid mb-8 sm:grid-cols-1 divide-y divide-gray-100 border border-gray-300 rounded-lg">
-                    <div class="grid gap-2 grid-cols-4 p-2.5">
-                        <div class="flex flex-row justify-between">
-                            <label class="text-sm font-medium text-blue-900">
-                                Latitude
-                            </label>
-                            <label class="text-sm font-medium text-blue-900">
-                                :
-                            </label>
-                        </div>
-                        <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
-                            {{peserta.lat}}
-                        </div>
-                    </div>
-                    <div class="grid gap-2 grid-cols-4 p-2.5">
-                        <div class="flex flex-row justify-between">
-                            <label class="text-sm font-medium text-blue-900">
-                                Longitude
-                            </label>
-                            <label class="text-sm font-medium text-blue-900">
-                                :
-                            </label>
-                        </div>
-                        <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
-                            {{peserta.long}}
-                        </div>
-                    </div>
-                    <div class="grid gap-2 grid-cols-4 p-2.5">
-                        <a [href]="'http://maps.google.com/maps?q='+peserta.lat+','+peserta.long" target="_blank"
-                            rel="noopener noreferrer" class="cursor-pointer col-end-5 col-span-1 flex flex-row gap-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                class="w-6 h-6">
-                                <path fill-rule="evenodd"
-                                    d="M8.161 2.58a1.875 1.875 0 0 1 1.678 0l4.993 2.498c.106.052.23.052.336 0l3.869-1.935A1.875 1.875 0 0 1 21.75 4.82v12.485c0 .71-.401 1.36-1.037 1.677l-4.875 2.437a1.875 1.875 0 0 1-1.676 0l-4.994-2.497a.375.375 0 0 0-.336 0l-3.868 1.935A1.875 1.875 0 0 1 2.25 19.18V6.695c0-.71.401-1.36 1.036-1.677l4.875-2.437ZM9 6a.75.75 0 0 1 .75.75V15a.75.75 0 0 1-1.5 0V6.75A.75.75 0 0 1 9 6Zm6.75 3a.75.75 0 0 0-1.5 0v8.25a.75.75 0 0 0 1.5 0V9Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <div class="text-blue-900 text-sm rounded-lg block w-full">
-                                Buka Pada Google Map
+                <div class="grid sm:grid-cols-2 items-start md:gap-8 mb-8 rounded-lg">
+                    <div class="grid mb-8 sm:grid-cols-1 divide-y divide-gray-100 border border-gray-300 rounded-lg">
+                        <div class="grid gap-2 grid-cols-4 p-2.5">
+                            <div class="flex flex-row justify-between">
+                                <label class="text-sm font-medium text-blue-900">
+                                    Latitude
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
                             </div>
-                        </a>
+                            <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
+                                {{peserta.lat}}
+                            </div>
+                        </div>
+                        <div class="grid gap-2 grid-cols-4 p-2.5">
+                            <div class="flex flex-row justify-between">
+                                <label class="text-sm font-medium text-blue-900">
+                                    Longitude
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
+                                {{peserta.long}}
+                            </div>
+                        </div>
+                        <div class="grid gap-2 grid-cols-1 md:grid-cols-3 p-2.5">
+                            <a [href]="'http://maps.google.com/maps?q='+peserta.lat+','+peserta.long" target="_blank"
+                                rel="noopener noreferrer" class="cursor-pointer md:col-end-5 md:col-span-2 flex flex-row gap-4 hover:underline hover:text-green-500 hover:font-medium">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="w-6 h-6 text-primary-bg">
+                                    <path fill-rule="evenodd"
+                                        d="M8.161 2.58a1.875 1.875 0 0 1 1.678 0l4.993 2.498c.106.052.23.052.336 0l3.869-1.935A1.875 1.875 0 0 1 21.75 4.82v12.485c0 .71-.401 1.36-1.037 1.677l-4.875 2.437a1.875 1.875 0 0 1-1.676 0l-4.994-2.497a.375.375 0 0 0-.336 0l-3.868 1.935A1.875 1.875 0 0 1 2.25 19.18V6.695c0-.71.401-1.36 1.036-1.677l4.875-2.437ZM9 6a.75.75 0 0 1 .75.75V15a.75.75 0 0 1-1.5 0V6.75A.75.75 0 0 1 9 6Zm6.75 3a.75.75 0 0 0-1.5 0v8.25a.75.75 0 0 0 1.5 0V9Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <div class="text-blue-900 text-sm rounded-lg block w-full">
+                                    Buka Pada Google Map
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid mb-8 sm:grid-cols-1 divide-y divide-gray-100 border border-gray-300 rounded-lg">
+                        <div class="grid gap-2 grid-cols-1 md:grid-cols-4  p-2.5">
+                            <div class="flex flex-row justify-between">
+                                <label class="text-sm font-medium text-blue-900">
+                                    Alamat Rumah
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="md:col-span-3 text-cen text-blue-900 text-sm rounded-lg block w-full">
+                                {{peserta.alamat_detail}}
+                            </div>
+                        </div>
+                        <div class="grid gap-2 grid-cols-1 md:grid-cols-4  p-2.5">
+                            <div class="flex flex-row justify-between">
+                                <label class="text-sm font-medium text-blue-900">
+                                    Berdasarkan Penitikan
+                                </label>
+                                <label class="text-sm font-medium text-blue-900">
+                                    :
+                                </label>
+                            </div>
+                            <div class="md:col-span-3  text-cen text-blue-900 text-sm rounded-lg block w-full">
+                                {{peserta.alamat_map}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
