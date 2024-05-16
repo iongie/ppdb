@@ -65,7 +65,7 @@ export class SidebarDasborComponent implements OnInit, OnDestroy {
   }
 
   refreshDataGetMenu(){
-    this.getMenu();
+    this.getMenu()
   }
 
   goToPage(url: string, id: number, menu: string, subMenu: string, disabled: number) {

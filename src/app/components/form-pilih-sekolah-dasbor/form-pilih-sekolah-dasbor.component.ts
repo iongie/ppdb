@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject, catchError, combineLatest, map, of, switchMap, takeUntil, tap, timer } from 'rxjs';
+import { Subject, catchError, combineLatest, map, of, switchMap, take, takeUntil, tap, timer } from 'rxjs';
 import { CallApiService } from '../../services/call-api/call-api.service';
 import { StateLoginService } from '../../services/state-login/state-login.service';
 import { StatePilihMenuService } from '../../services/state-pilih-menu/state-pilih-menu.service';
@@ -125,7 +125,6 @@ export class FormPilihSekolahDasborComponent implements OnInit, OnDestroy {
         }),
         tap(()=>{
           this.viewKonfirmasi.emit(true);
-          this.viewKonfirmasi.complete();
         }),
         switchMap(()=>timer(2000)),
         tap(()=>this.formPilihSekolah()),
@@ -134,7 +133,7 @@ export class FormPilihSekolahDasborComponent implements OnInit, OnDestroy {
           this.messageError = e.message === 'harap mengisi form data' ? e.message : e.error.message;
           throw e;
         }),
-        takeUntil(this.destroy)
+        take(1)
       )
       .subscribe()
   }

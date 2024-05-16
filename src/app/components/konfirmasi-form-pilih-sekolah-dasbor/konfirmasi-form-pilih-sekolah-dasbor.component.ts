@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { Subject, catchError, of, switchMap, takeUntil, tap, timer } from 'rxjs';
+import { Subject, catchError, of, switchMap, take, takeUntil, tap, timer } from 'rxjs';
 import { CallApiService } from '../../services/call-api/call-api.service';
 import { StatePilihSekolahService } from '../../services/state-pilih-sekolah/state-pilih-sekolah.service';
 import { PilihSekolah, defPilihSekolah } from '../../interfaces/daftar-seleksi.interface';
@@ -73,22 +73,18 @@ export class KonfirmasiFormPilihSekolahDasborComponent implements OnInit, OnDest
       }),
       tap(() => {
         this.viewKonfirmasi.emit(false);
-        this.viewKonfirmasi.complete();
         this.viewRespon.emit(true);
-        this.viewRespon.complete();
       }),
       switchMap(() => this.statePilihMenuS.getPilihMenu),
       tap((pm)=> 
         this.router.navigate(['dasbor/'+this.helperS.ubahSpasiDanHurufKecil(pm.menu!)+'-hasil-seleksi-saya'])),
       catchError((e:any) => {
         this.viewKonfirmasi.emit(false);
-        this.viewKonfirmasi.complete();
         this.viewRespon.emit(true);
-        this.viewRespon.complete();
         this.stateResponS.updateModelModal({mode:'error', pesan: e.error.message})
         throw e;
       }),
-      takeUntil(this.destroy)
+      take(1)
     ).subscribe()
   }
 }

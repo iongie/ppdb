@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject, switchMap, tap, catchError, takeUntil } from 'rxjs';
+import { Subject, switchMap, tap, catchError, takeUntil, take } from 'rxjs';
 import { CallApiService } from '../../services/call-api/call-api.service';
 import { StateLoginService } from '../../services/state-login/state-login.service';
 
@@ -28,7 +28,6 @@ export class KonfirmasiLogoutComponent implements OnInit, OnDestroy {
 
   cancel(){
     this.view.emit(false);
-    this.view.complete();
   }
 
   logout(){
@@ -42,11 +41,10 @@ export class KonfirmasiLogoutComponent implements OnInit, OnDestroy {
       tap(()=>this.router.navigate((['/']))),
       tap(()=> this.stateLoginS.clearLogin()),
       catchError((e:Error) => {
-        this.view.emit(false)
-        this.view.complete();
+        this.view.emit(false);
         throw e;
       }),
-      takeUntil(this.destroy)
+      take(1)
     ).subscribe()
   }
 }
