@@ -27,6 +27,5 @@ export class StateLoginService {
 
   async clearLogin(){
     await this.cookieStorage.delete('daftar-ppdb');
-    this.login.next(defLogin);
   }
 }

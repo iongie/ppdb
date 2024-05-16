@@ -1,11 +1,12 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { Subject, catchError, map, of, switchMap, takeUntil, tap } from 'rxjs';
+import { Subject, catchError, map, of, switchMap, take, takeUntil, tap } from 'rxjs';
 import { Menu, defMenu } from '../../interfaces/sidebar.interface';
 import { HelperService } from '../../services/helper/helper.service';
 import { CallApiService } from '../../services/call-api/call-api.service';
 import { Router } from '@angular/router';
 import { StateLoginService } from '../../services/state-login/state-login.service';
 import { StatePilihMenuService } from '../../services/state-pilih-menu/state-pilih-menu.service';
+import { StateMenuService } from '../../services/state-menu/state-menu.service';
 
 @Component({
   selector: 'ppdb-sidebar-dasbor',
@@ -26,7 +27,8 @@ export class SidebarDasborComponent implements OnInit, OnDestroy {
     private callApiS: CallApiService,
     private router: Router,
     private stateLoginS: StateLoginService,
-    private statePilihMenuS: StatePilihMenuService
+    private statePilihMenuS: StatePilihMenuService,
+    private stateMenu: StateMenuService
   ) { }
   ngOnInit(): void {
     this.getMenu();
@@ -41,22 +43,15 @@ export class SidebarDasborComponent implements OnInit, OnDestroy {
     of(this.isLoading)
       .pipe(
         tap(() => this.isLoading = true),
-        switchMap(() => this.stateLoginS.getLogin),
-        switchMap((r) => this.callApiS.post(null, 'daftar/menu', r.auth.access_token!)),
-        map((r: any) => r.data.map((n: any) => {
-          let sn = n.submenu.map((sn: any) => {
-            return { ...sn, url: 'dasbor/'+this.helperS.ubahSpasiDanHurufKecil(n.menu)+'-'+this.helperS.ubahSpasiDanHurufKecil(sn.text) }
-          })
-          return { ...n, submenu: sn }
-        })),
-        tap((r: any) => {
+        switchMap(() => this.stateMenu.getMenuError),
+        tap((e) => this.menuError = e),
+        switchMap(() => this.stateMenu.getMenuErrorMessage),
+        tap((e) => this.menuErrorMessage = e),
+        switchMap(() => this.stateMenu.getMenu),
+        tap((m) => this.menu = m),
+        tap(() => this.isLoading = false),
+        catchError((e:any) => {
           this.isLoading = false;
-          this.menu = r;
-        }),
-        catchError(e => {
-          this.isLoading = false;
-          this.menuError = true;
-          this.menuErrorMessage = e.error.message
           throw e;
         }),
         takeUntil(this.destroy)
@@ -65,7 +60,25 @@ export class SidebarDasborComponent implements OnInit, OnDestroy {
   }
 
   refreshDataGetMenu(){
-    this.getMenu()
+    this.stateLoginS.getLogin
+    .pipe(
+      switchMap((r) => this.callApiS.post(null, 'daftar/menu', r.auth.access_token!)),
+      map((r: any) => r.data.map((n: any) => {
+        let sn = n.submenu.map((sn: any) => {
+          return { ...sn, url: 'dasbor/'+this.helperS.ubahSpasiDanHurufKecil(n.menu)+'-'+this.helperS.ubahSpasiDanHurufKecil(sn.text) }
+        })
+        return { ...n, submenu: sn }
+      })),
+      tap((r: any) => {
+        this.stateMenu.updateMenu(r)
+      }),
+      catchError(e => {
+        this.stateMenu.updateMenuError(true);
+        this.stateMenu.updateMenuErrorMessage(e.error.message)
+        throw e;
+      }),
+      take(1)
+    ).subscribe()
   }
 
   goToPage(url: string, id: number, menu: string, subMenu: string, disabled: number) {

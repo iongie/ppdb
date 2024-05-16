@@ -38,8 +38,8 @@ export class KonfirmasiLogoutComponent implements OnInit, OnDestroy {
         this.view.emit(false);
         this.view.complete();
       }),
-      tap(()=>this.router.navigate((['/']))),
       tap(()=> this.stateLoginS.clearLogin()),
+      tap(()=>this.router.navigate((['/']))),
       catchError((e:Error) => {
         this.view.emit(false);
         throw e;

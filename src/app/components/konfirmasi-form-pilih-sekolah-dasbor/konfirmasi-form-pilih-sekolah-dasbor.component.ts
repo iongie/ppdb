@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { Subject, catchError, of, switchMap, take, takeUntil, tap, timer } from 'rxjs';
+import { Subject, catchError, map, of, switchMap, take, takeUntil, tap, timer } from 'rxjs';
 import { CallApiService } from '../../services/call-api/call-api.service';
 import { StatePilihSekolahService } from '../../services/state-pilih-sekolah/state-pilih-sekolah.service';
 import { PilihSekolah, defPilihSekolah } from '../../interfaces/daftar-seleksi.interface';
@@ -9,6 +9,7 @@ import { HelperService } from '../../services/helper/helper.service';
 import { PilihMenu } from '../../interfaces/pilih-menu.interface';
 import { StatePilihMenuService } from '../../services/state-pilih-menu/state-pilih-menu.service';
 import { StateResponService } from '../../services/state-respon/state-respon.service';
+import { StateMenuService } from '../../services/state-menu/state-menu.service';
 
 @Component({
   selector: 'ppdb-konfirmasi-form-pilih-sekolah-dasbor',
@@ -27,6 +28,7 @@ export class KonfirmasiFormPilihSekolahDasborComponent implements OnInit, OnDest
     private statePilihMenuS: StatePilihMenuService,
     private stateLoginS: StateLoginService,
     private stateResponS: StateResponService,
+    private stateMenu: StateMenuService,
     private router: Router,
     private helperS: HelperService
   ){}
@@ -48,6 +50,28 @@ export class KonfirmasiFormPilihSekolahDasborComponent implements OnInit, OnDest
       takeUntil(this.destroy)
     )
     .subscribe()
+  }
+
+  getMenu(){
+    this.stateLoginS.getLogin
+    .pipe(
+      switchMap((r) => this.callApiS.post(null, 'daftar/menu', r.auth.access_token!)),
+      map((r: any) => r.data.map((n: any) => {
+        let sn = n.submenu.map((sn: any) => {
+          return { ...sn, url: 'dasbor/'+this.helperS.ubahSpasiDanHurufKecil(n.menu)+'-'+this.helperS.ubahSpasiDanHurufKecil(sn.text) }
+        })
+        return { ...n, submenu: sn }
+      })),
+      tap((r: any) => {
+        this.stateMenu.updateMenu(r)
+      }),
+      catchError(e => {
+        this.stateMenu.updateMenuError(true);
+        this.stateMenu.updateMenuErrorMessage(e.error.message)
+        throw e;
+      }),
+      take(1)
+    ).subscribe()
   }
   
   cancel(){
@@ -76,8 +100,10 @@ export class KonfirmasiFormPilihSekolahDasborComponent implements OnInit, OnDest
         this.viewRespon.emit(true);
       }),
       switchMap(() => this.statePilihMenuS.getPilihMenu),
-      tap((pm)=> 
-        this.router.navigate(['dasbor/'+this.helperS.ubahSpasiDanHurufKecil(pm.menu!)+'-hasil-seleksi-saya'])),
+      tap((pm)=> {
+        this.getMenu();
+        this.router.navigate(['dasbor/'+this.helperS.ubahSpasiDanHurufKecil(pm.menu!)+'-hasil-seleksi-saya'])
+      }),
       catchError((e:any) => {
         this.viewKonfirmasi.emit(false);
         this.viewRespon.emit(true);

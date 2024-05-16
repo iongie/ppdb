@@ -59,7 +59,7 @@ export class ProsesComponent implements OnInit, OnDestroy {
     of(ev)
     .pipe(
       tap((r)=>this.viewRespon = r),
-      switchMap(() => timer(2000)),
+      switchMap(() => timer(3000)),
       tap((r)=>this.viewRespon = false),
       takeUntil(this.destroy)
     ).subscribe()
