@@ -2,6 +2,11 @@
     <h4 class="text-2xl font-bold dark:text-white">{{title}} - {{daftarSekolah.kategori.menu}}</h4>
     <p class="mb-8 text-sm font-normal text-gray-500 lg:text-sm dark:text-gray-400">Waktu Pendaftaran Terbuka Mulai
         {{daftarSekolah.kategori.from}} - {{daftarSekolah.kategori.to}}</p>
+        <ng-container *ngIf="actionMessageGantiPilihan">
+            <div class="p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50" role="alert">
+                <span class="font-medium">Info!</span> {{messageGantiPilihan}}
+            </div>
+        </ng-container>
     <ng-container *ngIf="actionMessageError || getDaftarSekolahError">
         <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
             <span class="font-medium">Info alert!</span> {{messageError || getDaftarSekolahErrorMessage}}
@@ -9,7 +14,7 @@
     </ng-container>
     <ng-container *ngIf="daftarSekolah.info?.length !== 0">
         <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50" role="alert">
-            <span class="font-medium">Info alert!</span> {{daftarSekolah.info}}
+            <span class="font-medium">Info!</span> {{daftarSekolah.info}}
         </div>
     </ng-container>
     <ng-container *ngIf="daftarSekolah.error?.length !== 0">

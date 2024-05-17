@@ -27,6 +27,8 @@ export class FormPilihSekolahDasborComponent implements OnInit, OnDestroy {
   getDaftarSekolahErrorMessage: string | null = null;
   
   @Output() viewKonfirmasi = new EventEmitter<boolean>();
+  @Input() actionMessageGantiPilihan: boolean = false;
+  @Input() messageGantiPilihan: string = '';
   constructor(
     private fb: FormBuilder,
     private stateLoginS: StateLoginService,

@@ -19,6 +19,9 @@ export class ProsesComponent implements OnInit, OnDestroy {
   
   viewKonfirmasi : boolean = false;
   viewRespon : boolean = false;
+
+  actionMessageGantiPilihan: boolean = false;
+  messageGantiPilihan: string = '';
   constructor(
     private aktifRoute: ActivatedRoute,
     private helperS: HelperService,
@@ -42,9 +45,13 @@ export class ProsesComponent implements OnInit, OnDestroy {
         this.menuGantiSekolah = this.helperS.berisiKata(res['id'], 'ganti-pilihan');
         this.menuHasilSeleksiSaya = this.helperS.berisiKata(res['id'], 'hasil-seleksi-saya');
         if(this.menuPilihSekolah){
-          this.title = 'Daftar Sekolah'
+          this.title = 'Daftar Sekolah';
+          this.actionMessageGantiPilihan = false;
+          this.messageGantiPilihan = '';
         }else if(this.menuGantiSekolah){
-          this.title = 'Ganti Pilihan Sekolah'
+          this.title = 'Ganti Pilihan Sekolah';
+          this.actionMessageGantiPilihan = true;
+          this.messageGantiPilihan = 'Proses pergantian sekolah hanya dapat dilakukan sebanyak tiga kali.';
         }
       }),
       takeUntil(this.destroy)

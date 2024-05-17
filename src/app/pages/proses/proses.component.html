@@ -1,7 +1,7 @@
 <div class="py-8 md:ml-14 md mx-auto max-w-screen-xl text-start">
     <ng-container *ngIf="!menuHasilSeleksiSaya">
         <ng-container *ngIf="menuPilihSekolah || menuGantiSekolah">
-            <ppdb-form-pilih-sekolah-dasbor [title]="title" (viewKonfirmasi)="getKonfirmasi($event)"></ppdb-form-pilih-sekolah-dasbor>
+            <ppdb-form-pilih-sekolah-dasbor [title]="title" (viewKonfirmasi)="getKonfirmasi($event)" [actionMessageGantiPilihan]="actionMessageGantiPilihan" [messageGantiPilihan]="messageGantiPilihan"></ppdb-form-pilih-sekolah-dasbor>
         </ng-container>
     </ng-container>
     <ng-container *ngIf="menuHasilSeleksiSaya">
