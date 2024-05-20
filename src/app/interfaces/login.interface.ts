@@ -44,7 +44,7 @@ interface User {
     npsn: string | null;
     nilai_rapor: number | null;
     keterangan: string | null;
-    nilai_prestasi: number | null;
+    nilai_prestasi: string | null;
     afirmasi: string | null;
     prestasi: string | null;
     pindahortu: string | null;

@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { NavigasiService } from './services/navigasi/navigasi.service';
+import { CallApiService } from './services/call-api/call-api.service';
 
 @Component({
   selector: 'ppdb-root',
@@ -14,11 +15,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private navigasiS: NavigasiService
+    private navigasiS: NavigasiService,
+    private callApi: CallApiService
   ) { }
 
   ngOnInit(): void {
     this.navigation();
+    this.getIp();
   }
 
   ngOnDestroy(): void {
@@ -33,5 +36,12 @@ export class AppComponent implements OnInit, OnDestroy {
           this.navigasiS.perbaruiUrl(event.url)
         }
       });
+  }
+
+  getIp(){
+    this.callApi.getIp('cek-ip')
+    .pipe(
+      takeUntil(this.destroy)
+    ).subscribe()
   }
 }

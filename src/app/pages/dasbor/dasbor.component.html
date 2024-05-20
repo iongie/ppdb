@@ -135,7 +135,7 @@
                 </label>
             </div>
             <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
-                {{user.nilai_prestasi}}</div>
+                {{user.nilai_prestasi === '' ? '-': user.nilai_prestasi}}</div>
         </div>
 
         <div class="grid gap-2 grid-cols-4">
@@ -167,7 +167,7 @@
         <div class="grid gap-2 grid-cols-4">
             <div class="mt-2 flex flex-row justify-between">
                 <label class="ml-4 text-sm font-medium text-blue-900">
-                    Anak Gurun
+                    Anak Guru
                 </label>
                 <label class="text-sm font-medium text-blue-900">
                     :

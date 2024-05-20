@@ -61,4 +61,14 @@ export class CallApiService {
       })
     )
   }
+
+  getIp(page_url?: string){
+    return this.http.get(
+      environment.URL_API_MAIN+page_url
+    ).pipe(
+      catchError((error) => {
+        return throwError(() => error);
+      })
+    )
+  }
 }
