@@ -38,6 +38,8 @@ interface Aktif {
     tgl_daftar: string | null;
     status: string | null;
     ket: string | null;
+    c_lulus: string | null;
+    valid: string | null;
 }
 
 const defAktif: Aktif[] = []

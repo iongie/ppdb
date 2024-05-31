@@ -188,8 +188,14 @@
                     :
                 </label>
             </div>
-            <div class="col-span-3 text-blue-900 text-sm rounded-lg block w-full p-2.5">
-                {{hasilSeleksiSaya.status}}</div>
+            <!-- c_lulus = 1, bg_green, c_lulus = 0 , font italic, c-lulus 2 = bg-merah -->
+            <!-- if valid !== 2 jalanin atas, else bg_merah -->
+            <div class="col-span-3 text-sm rounded-lg block w-full p-2.5">
+               <span [ngClass]="hasilSeleksiSaya.valid == '2' ? 'bg-green-500 text-white'
+               : hasilSeleksiSaya.c_lulus == '1' ? 'bg-green-500 text-white'
+               : hasilSeleksiSaya.c_lulus == '0' ? 'text-blue-900 underline'
+               : 'bg-red-500 text-white'" class="rounded-full px-2.5 py-1 font-medium">{{hasilSeleksiSaya.status}}</span>
+            </div>
         </div>
         
         <div class="grid gap-2 grid-cols-4">

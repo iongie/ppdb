@@ -9,6 +9,8 @@ interface HasilSeleksiSaya {
     tgl_daftar: string | null;
     status: string | null;
     ket: string | null;
+    valid: string | null;
+    c_lulus: string | null
 }
 
 const defHasilSeleksiSaya: HasilSeleksiSaya = {
@@ -22,6 +24,8 @@ const defHasilSeleksiSaya: HasilSeleksiSaya = {
     tgl_daftar: null,
     status: null,
     ket: null,
+    valid: null,
+    c_lulus: null
 }
 
 export {

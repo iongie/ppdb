@@ -22,7 +22,7 @@ const routes: Routes = [
     CommonModule,
     ComponentUtamaModule,
     RouterModule.forChild(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class HasilSeleksiModule { }

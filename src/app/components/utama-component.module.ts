@@ -6,6 +6,9 @@ import { RouterModule } from '@angular/router';
 import { InfoTahapanUtamaComponent } from './info-tahapan-utama/info-tahapan-utama.component';
 import { InfoJadwalUtamaComponent } from './info-jadwal-utama/info-jadwal-utama.component';
 import { LihatHasilSeleksiDetailUtamaComponent } from './lihat-hasil-seleksi-detail-utama/lihat-hasil-seleksi-detail-utama.component';
+import { FormHasilSeleksiV2UtamaComponent } from './form-hasil-seleksi-v2-utama/form-hasil-seleksi-v2-utama.component';
+import { DirectivesModule } from '../directives/directives.module';
+import { FormHasilSeleksiV3UtamaComponent } from './form-hasil-seleksi-v3-utama/form-hasil-seleksi-v3-utama.component';
 
 @NgModule({
   declarations: [
@@ -13,18 +16,23 @@ import { LihatHasilSeleksiDetailUtamaComponent } from './lihat-hasil-seleksi-det
     SupportUsUtamaComponent,
     InfoTahapanUtamaComponent,
     InfoJadwalUtamaComponent,
-    LihatHasilSeleksiDetailUtamaComponent
+    LihatHasilSeleksiDetailUtamaComponent,
+    FormHasilSeleksiV2UtamaComponent,
+    FormHasilSeleksiV3UtamaComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    DirectivesModule
   ],
   exports:[
     HeroUtamaComponent,
     SupportUsUtamaComponent,
     InfoTahapanUtamaComponent,
     InfoJadwalUtamaComponent,
-    LihatHasilSeleksiDetailUtamaComponent
+    LihatHasilSeleksiDetailUtamaComponent,
+    FormHasilSeleksiV2UtamaComponent,
+    FormHasilSeleksiV3UtamaComponent
   ]
 })
 export class ComponentUtamaModule { }
