@@ -16,6 +16,8 @@ export class FormHasilSeleksiV3UtamaComponent implements OnInit, OnDestroy {
   sekolah: Sekolah[] = defSekolah;
   sekolahError: boolean = false;
   sekolahErrorMessage: string = '';
+  pilihSekolah: string = '';
+
   kategori: Kategori[] = defKategori;
   kategoriError: boolean = false;
   kategoriErrorMessage: string | null = null;
@@ -92,11 +94,16 @@ export class FormHasilSeleksiV3UtamaComponent implements OnInit, OnDestroy {
     of(event)
       .pipe(
         tap((selectedValue) => this.hasilSeleksiPpdbForm.get('tmsekolah_id')?.setValue(selectedValue)),
-        tap(() => {
+        tap((selectedValue) => {
           this.isLoading = true;
           this.actionMessageError = false;
+
+          let filterSekolah = this.sekolah.filter(x => {
+            return x.id == selectedValue
+          })
+          this.pilihSekolah = filterSekolah[0].n_sekolah!;
         }),
-        switchMap(()=> of(this.hasilSeleksiPpdbForm.valid)),
+        switchMap(() => of(this.hasilSeleksiPpdbForm.valid)),
         map(n => {
           if (!n) {
             Object.values(this.hasilSeleksiPpdbForm.controls).forEach(control => {
