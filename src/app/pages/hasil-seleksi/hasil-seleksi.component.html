@@ -1,10 +1,8 @@
-<div class="py-24 px-4 mx-auto max-w-screen-xl lg:py-24 lg:px-8">
-    <h4 class="mb-8 text-center text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl">
-        Hasil Seleksi PPDB SMPN</h4>
-    <ppdb-form-hasil-seleksi-utama></ppdb-form-hasil-seleksi-utama>
-    <!-- <ppdb-form-hasil-seleksi-v2-utama></ppdb-form-hasil-seleksi-v2-utama>
-    <ppdb-form-hasil-seleksi-v3-utama></ppdb-form-hasil-seleksi-v3-utama> -->
-    <ng-container *ngIf="hasilSeleksi.peserta.length === 0">
+<div class="py-16 md:py-18 mx-auto max-w-screen-xl mt-20 md:mt-32">
+    <!-- <ppdb-form-hasil-seleksi-utama></ppdb-form-hasil-seleksi-utama> -->
+    <!-- <ppdb-form-hasil-seleksi-v2-utama></ppdb-form-hasil-seleksi-v2-utama> -->
+    <ppdb-form-hasil-seleksi-v3-utama></ppdb-form-hasil-seleksi-v3-utama>
+    <!-- <ng-container *ngIf="hasilSeleksi.peserta.length === 0">
         <section class="bg-white dark:bg-gray-900">
             <div class="flex flex-col justify-center items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -20,10 +18,10 @@
                     yang tersedia.</p>
             </div>
         </section>
-    </ng-container>
+    </ng-container> -->
     <ng-container *ngIf="hasilSeleksi.peserta.length !== 0">
         <div
-            class="grid mb-4 sm:grid-cols-1 divide-y divide-gray-100 border border-gray-300 rounded-lg mx-auto md:mx-56">
+            class="grid mb-4 sm:grid-cols-1 divide-y divide-gray-100 border border-gray-300 rounded-lg md:mx-56 mx-4">
             <div class="grid gap-2 grid-cols-4">
                 <div class="mt-2 flex flex-row justify-between">
                     <label class="text-start ml-2 md:ml-4 text-sm font-medium text-primary-bg">
@@ -89,7 +87,7 @@
             </ng-container>
         </div>
 
-        <div class="relative overflow-x-auto border sm:rounded-lg max-h-96 mb-8">
+        <div class="relative overflow-x-auto border sm:rounded-lg max-h-96 mb-8 mx-18">
             <table class="w-full text-sm text-left rtl:text-right">
                 <thead class="sticky z-10 top-0  text-xs text-gray-700 uppercase bg-gray-50 border-b border-gray-200">
                     <tr>

@@ -19,6 +19,7 @@ export class FormHasilSeleksiV3UtamaComponent implements OnInit, OnDestroy {
   kategori: Kategori[] = defKategori;
   kategoriError: boolean = false;
   kategoriErrorMessage: string | null = null;
+  pilihKategori: string = '';
 
   hasilSeleksiPpdbForm!: FormGroup;
   hasilSeleksiPpdbFormData: FormData | null = null;
@@ -88,9 +89,44 @@ export class FormHasilSeleksiV3UtamaComponent implements OnInit, OnDestroy {
   }
 
   onSekolahChange(event: number) {
-    const selectedValue = event;
-    this.hasilSeleksiPpdbForm.get('tmsekolah_id')?.setValue(selectedValue);
-    this.selectedSekolahIndex = selectedValue;
+    of(event)
+      .pipe(
+        tap((selectedValue) => this.hasilSeleksiPpdbForm.get('tmsekolah_id')?.setValue(selectedValue)),
+        tap(() => {
+          this.isLoading = true;
+          this.actionMessageError = false;
+        }),
+        switchMap(()=> of(this.hasilSeleksiPpdbForm.valid)),
+        map(n => {
+          if (!n) {
+            Object.values(this.hasilSeleksiPpdbForm.controls).forEach(control => {
+              control.markAsTouched();
+            });
+            throw new Error('harap mengisi form data');
+          }
+          return n;
+        }),
+        tap((r) => {
+          this.hasilSeleksiPpdbFormData = new FormData();
+          this.hasilSeleksiPpdbFormData.append('tmsekolah_id', this.hasilSeleksiPpdbForm.get('tmsekolah_id')?.value)
+          this.hasilSeleksiPpdbFormData.append('tmdaftarkategori_id', this.hasilSeleksiPpdbForm.get('tmdaftarkategori_id')?.value)
+        }),
+        switchMap(() => this.callApiS.post(this.hasilSeleksiPpdbFormData, 'pengumuman/pendaftar')),
+        tap((r: any) => {
+          this.isLoading = false;
+          this.hasilSeleksiS.updateHasilSeleksi(r.data);
+          this.openFilter = true;
+          this.openPilih = false;
+        }),
+        catchError((e) => {
+          this.isLoading = false;
+          this.hasilSeleksiS.clearHasilSeleksi()
+          this.actionMessageError = true;
+          this.messageError = e.message === 'harap mengisi form data' ? e.message : e.error.message;
+          throw e;
+        }),
+        takeUntil(this.destroy)
+      ).subscribe()
   }
 
   refreshDataGetSekolah() {
@@ -101,7 +137,17 @@ export class FormHasilSeleksiV3UtamaComponent implements OnInit, OnDestroy {
     of(this.kategoriError = false)
       .pipe(
         switchMap(() => this.callApiS.get('daftar/kategori')),
-        tap((r: any) => this.kategori = r.data),
+        tap((r: any) => {
+          this.kategori = r.data;
+          this.kategori[0].n_file = '../../assets/zonasi.png'
+          this.kategori[1].n_file = '../../assets/afirmasi.png'
+          this.kategori[2].n_file = '../../assets/prestasi.png'
+          this.kategori[3].n_file = '../../assets/perpindahan_tugas.png'
+          this.kategori[4].n_file = '../../assets/anak_guru.png'
+          this.kategori[5].n_file = '../../assets/prestasi_dalam_zona.png'
+          this.kategori[6].n_file = '../../assets/prestasi_luar_zona.png'
+
+        }),
         catchError(e => {
           this.kategoriError = true;
           this.kategoriErrorMessage = e.statusText
@@ -115,6 +161,10 @@ export class FormHasilSeleksiV3UtamaComponent implements OnInit, OnDestroy {
   onKategoriChange(event: number) {
     const selectedValue = event;
     this.hasilSeleksiPpdbForm.get('tmdaftarkategori_id')?.setValue(selectedValue);
+    let filterKategori = this.kategori.filter(x => {
+      return x.id == selectedValue
+    })
+    this.pilihKategori = filterKategori[0].n_daftarkategori!;
     this.selectedKategoriIndex = selectedValue;
     this.openPilih = true;
   }
@@ -123,9 +173,9 @@ export class FormHasilSeleksiV3UtamaComponent implements OnInit, OnDestroy {
     this.getKategori();
   }
 
-  back(){
+  back() {
     this.openPilih = false;
-    this.selectedKategoriIndex = null; 
+    this.selectedKategoriIndex = null;
     this.selectedSekolahIndex = null;
   }
 
@@ -171,7 +221,7 @@ export class FormHasilSeleksiV3UtamaComponent implements OnInit, OnDestroy {
   action() {
     this.openFilter = false;
     this.hasilSeleksiS.clearHasilSeleksi();
-    this.selectedKategoriIndex = null; 
+    this.selectedKategoriIndex = null;
     this.selectedSekolahIndex = null;
   }
 }
