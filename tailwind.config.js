@@ -6,11 +6,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      scale: {
+        '155': '1.55',
+      },
       spacing: {
         '128': '32rem',
         '256': '64rem',
         '512': '128rem',
         '18': '4.5rem',
+        '1024': '256rem'
       },
       keyframes: {
         'slide-in-right': {

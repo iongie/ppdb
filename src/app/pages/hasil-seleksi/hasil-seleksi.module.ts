@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { FormHasilSeleksiUtamaComponent } from '../../components/form-hasil-seleksi-utama/form-hasil-seleksi-utama.component';
 import { ComponentUtamaModule } from '../../components/utama-component.module';
+import { DirectivesModule } from '../../directives/directives.module';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     ComponentUtamaModule,
+    DirectivesModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
   ]

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JadwalComponent } from './jadwal.component';
 import { RouterModule, Routes } from '@angular/router';
+import { DirectivesModule } from '../../directives/directives.module';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    DirectivesModule,
     RouterModule.forChild(routes)
   ]
 })

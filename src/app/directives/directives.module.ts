@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { InputHanyaNomorDirective } from './input-hanya-nomor/input-hanya-nomor.directive';
 import { SidebarDropdownDirective } from './sidebar-dropdown/sidebar-dropdown.directive';
 import { HighlightSelectedDirective } from './highlight-selected/highlight-selected.directive';
+import { TitleBarDirective } from './title-bar/title-bar.directive';
 
 
 
@@ -10,7 +11,8 @@ import { HighlightSelectedDirective } from './highlight-selected/highlight-selec
   declarations: [
     InputHanyaNomorDirective,
     SidebarDropdownDirective,
-    HighlightSelectedDirective
+    HighlightSelectedDirective,
+    TitleBarDirective
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { HighlightSelectedDirective } from './highlight-selected/highlight-selec
   exports: [
     InputHanyaNomorDirective,
     SidebarDropdownDirective,
-    HighlightSelectedDirective
+    HighlightSelectedDirective,
+    TitleBarDirective
   ]
 })
 export class DirectivesModule { }
