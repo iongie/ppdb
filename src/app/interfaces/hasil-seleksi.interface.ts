@@ -110,12 +110,14 @@ const defDetailPeserta: Peserta = {
 }
 
 interface HasilSeleksi {
+    id_kategori: number | null;
     ranking: Ranking;
     surat: Surat;
     peserta: Peserta[]
 }
 
 const defHasilSeleksi: HasilSeleksi = {
+    id_kategori: null,
     ranking: defRanking,
     surat: defSurat,
     peserta: defPeserta

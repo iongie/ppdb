@@ -87,7 +87,6 @@ export class FormHasilSeleksiV2UtamaComponent implements OnInit, OnDestroy {
   }
 
   onSekolahChange(event: number) {
-    console.log('onSekolahChange', event);
     const selectedValue = event;
     this.hasilSeleksiPpdbForm.get('tmsekolah_id')?.setValue(selectedValue);
     this.selectedSekolahIndex = selectedValue;
@@ -113,7 +112,6 @@ export class FormHasilSeleksiV2UtamaComponent implements OnInit, OnDestroy {
   }
 
   onKategoriChange(event: number) {
-    console.log('onKategoriChange', event);
     const selectedValue = event;
     this.hasilSeleksiPpdbForm.get('tmdaftarkategori_id')?.setValue(selectedValue);
     this.selectedKategoriIndex = selectedValue;

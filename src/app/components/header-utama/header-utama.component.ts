@@ -33,7 +33,6 @@ export class HeaderUtamaComponent implements OnInit, OnDestroy {
     this.navigasiS.dapatkanUrl
     .pipe(
       tap(n=> {
-        console.log(n);
         this.url = n
       }),
       takeUntil(this.destroy)
@@ -46,7 +45,6 @@ export class HeaderUtamaComponent implements OnInit, OnDestroy {
   }
 
   menuMobile(ev: boolean ){
-    console.log('kondisi dari menu mobile', ev);
     this.menuKondisi = ev;
   }
 }

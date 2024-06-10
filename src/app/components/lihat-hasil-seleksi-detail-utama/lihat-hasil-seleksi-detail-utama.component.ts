@@ -11,8 +11,6 @@ export class LihatHasilSeleksiDetailUtamaComponent implements OnInit {
 @Output() view = new EventEmitter<boolean>();
 
 ngOnInit(): void {
-  console.log(this.peserta);
-  
 }
 
 closeModal(){

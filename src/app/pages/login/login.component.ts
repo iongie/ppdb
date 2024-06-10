@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log('hallo login')
     this.formLogin();
   }
 
@@ -77,7 +76,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   cancel() {
-    console.log('cancel action');
     this.formLogin();
   }
 

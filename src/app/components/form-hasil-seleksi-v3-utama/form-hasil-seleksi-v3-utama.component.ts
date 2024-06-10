@@ -121,7 +121,10 @@ export class FormHasilSeleksiV3UtamaComponent implements OnInit, OnDestroy {
         switchMap(() => this.callApiS.post(this.hasilSeleksiPpdbFormData, 'pengumuman/pendaftar')),
         tap((r: any) => {
           this.isLoading = false;
-          this.hasilSeleksiS.updateHasilSeleksi(r.data);
+          this.hasilSeleksiS.updateHasilSeleksi({
+            id_kategori: this.hasilSeleksiPpdbForm.get('tmdaftarkategori_id')?.value,
+            ...r.data
+          });
           this.openFilter = true;
           this.openPilih = false;
         }),

@@ -11,7 +11,6 @@ export class LihatDaftarNilaiDasborComponent implements OnInit {
   @Output() view = new EventEmitter<boolean>();
 
   ngOnInit(): void {
-    console.log('lihat-daftar', this.nilai);
   }
 
   closeModal(){

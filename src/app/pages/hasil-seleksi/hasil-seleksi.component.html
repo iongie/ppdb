@@ -104,6 +104,15 @@
                             Sekolah asal
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            {{hasilSeleksi.id_kategori == 1 && 2 && 4 && 5 ? 'Nilai Jarak': 'Nilai Rapor'}}
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Tanggal Lahir
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Tanggal Daftar
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Status
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -140,6 +149,15 @@
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-white">
                                 {{peserta.sekolah_asal}}
+                            </td>
+                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-white">
+                                {{hasilSeleksi.id_kategori == 1 && 2 && 4 && 5 ? peserta.nilai_jarak+' Km': peserta.nilai_rapor}}
+                            </td>
+                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-white">
+                                {{peserta.d_lahir}}
+                            </td>
+                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-white">
+                                {{peserta.created_at}}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-blue-50">
                                 <span

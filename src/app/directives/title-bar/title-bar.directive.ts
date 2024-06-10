@@ -15,8 +15,6 @@ export class TitleBarDirective implements OnInit {
   
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e: Event) {
-    console.log('scroll', e, window.scrollY);
-    
     const scrollPosition = window.scrollY;
     if (scrollPosition > 40) {
       this.renderer.addClass(this.el.nativeElement, 'hidden');
