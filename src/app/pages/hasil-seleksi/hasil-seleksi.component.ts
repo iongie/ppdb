@@ -33,6 +33,8 @@ export class HasilSeleksiComponent implements OnInit, OnDestroy {
     this.hasilSeleksiS.getHasilSeleksi
     .pipe(
       tap((m:any) => {
+        console.log(m);
+        
         this.hasilSeleksi = m
         this.tooltipVisible = new Array(this.hasilSeleksi.peserta.length).fill(false);
       }),

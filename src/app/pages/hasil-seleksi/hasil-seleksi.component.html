@@ -104,7 +104,8 @@
                             Sekolah asal
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            {{hasilSeleksi.id_kategori == 1 && 2 && 4 && 5 ? 'Nilai Jarak': 'Nilai Rapor'}}
+                            {{hasilSeleksi.id_kategori == 1 || hasilSeleksi.id_kategori == 2 || hasilSeleksi.id_kategori == 4 || hasilSeleksi.id_kategori == 5 ? 'Nilai Jarak': 
+                            hasilSeleksi.id_kategori == 3 ? 'Nilai Prestasi' : 'Nilai Rapor'}}
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Tanggal Lahir
@@ -150,25 +151,26 @@
                             <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-white">
                                 {{peserta.sekolah_asal}}
                             </td>
-                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-white">
-                                {{hasilSeleksi.id_kategori == 1 && 2 && 4 && 5 ? peserta.nilai_jarak+' Km': peserta.nilai_rapor}}
+                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-blue-50">
+                                {{hasilSeleksi.id_kategori == 1 || hasilSeleksi.id_kategori == 2 || hasilSeleksi.id_kategori == 4 || hasilSeleksi.id_kategori == 5 ? peserta.nilai_jarak+' Km': 
+                                    hasilSeleksi.id_kategori == 3 ? peserta.nilai_prestasi : peserta.nilai_rapor}}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-white">
                                 {{peserta.d_lahir}}
                             </td>
-                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-white">
+                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-blue-50">
                                 {{peserta.created_at}}
                             </td>
-                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-blue-50">
+                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-white">
                                 <span
                                     [ngClass]="peserta.c_lulus === 1 ? 'font-medium text-green-700' : 'font-medium text-red-700'">
                                     {{peserta.c_lulus === 1 ? 'Diterima': 'Tidak Diterima'}}</span>
 
                             </td>
-                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-white">
+                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-blue-50">
                                 {{peserta.c_ganti === 1 ? 'Ganti Pilihan': '-'}}
                             </td>
-                            <td class="relative px-6 py-4 bg-blue-50">
+                            <td class="relative px-6 py-4 bg-white">
                                 <button class="flex justify-between" type="button" (mouseenter)="showTooltip(i)"
                                     (mouseleave)="hideTooltip(i)">
                                     <ng-container *ngIf="peserta.valid === 0">
