@@ -87,7 +87,7 @@
             </ng-container>
         </div>
 
-        <div class="relative overflow-x-auto border sm:rounded-lg max-h-96 mx-18">
+        <div class="relative overflow-x-auto border sm:rounded-lg w-auto max-h-96 mx-4 md:mx-18">
             <table class="w-full text-sm text-left rtl:text-right">
                 <thead class="sticky z-10 top-0  text-xs text-gray-700 uppercase bg-gray-50 border-b border-gray-200">
                     <tr>
@@ -152,7 +152,8 @@
                                 {{peserta.sekolah_asal}}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-blue-50">
-                                {{hasilSeleksi.id_kategori == 1 || hasilSeleksi.id_kategori == 2 || hasilSeleksi.id_kategori == 4 || hasilSeleksi.id_kategori == 5 ? peserta.nilai_jarak+' Km': 
+                                {{hasilSeleksi.id_kategori == 1 || hasilSeleksi.id_kategori == 2 || hasilSeleksi.id_kategori == 4 || hasilSeleksi.id_kategori == 5 ? 
+                                    peserta.c_zonasi == 0 ? '(Luar Kota)': peserta.nilai_jarak+' Km': 
                                     hasilSeleksi.id_kategori == 3 ? peserta.nilai_prestasi : peserta.nilai_rapor}}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-white">

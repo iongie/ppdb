@@ -70,6 +70,7 @@ interface Peserta {
     d_valid: string | null;
     txt_valid: string | null;
     created_at: string | null;
+    c_zonasi: number | null;
 }
 
 const defPeserta : Peserta[] = []
@@ -107,6 +108,7 @@ const defDetailPeserta: Peserta = {
     d_valid: null,
     txt_valid: null,
     created_at: null,
+    c_zonasi: null
 }
 
 interface HasilSeleksi {

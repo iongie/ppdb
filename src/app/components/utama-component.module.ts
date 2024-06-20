@@ -9,6 +9,7 @@ import { LihatHasilSeleksiDetailUtamaComponent } from './lihat-hasil-seleksi-det
 import { FormHasilSeleksiV2UtamaComponent } from './form-hasil-seleksi-v2-utama/form-hasil-seleksi-v2-utama.component';
 import { DirectivesModule } from '../directives/directives.module';
 import { FormHasilSeleksiV3UtamaComponent } from './form-hasil-seleksi-v3-utama/form-hasil-seleksi-v3-utama.component';
+import { VideoPanduanComponent } from './video-panduan/video-panduan.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormHasilSeleksiV3UtamaComponent } from './form-hasil-seleksi-v3-utama/
     InfoJadwalUtamaComponent,
     LihatHasilSeleksiDetailUtamaComponent,
     FormHasilSeleksiV2UtamaComponent,
-    FormHasilSeleksiV3UtamaComponent
+    FormHasilSeleksiV3UtamaComponent,
+    VideoPanduanComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { FormHasilSeleksiV3UtamaComponent } from './form-hasil-seleksi-v3-utama/
     InfoJadwalUtamaComponent,
     LihatHasilSeleksiDetailUtamaComponent,
     FormHasilSeleksiV2UtamaComponent,
-    FormHasilSeleksiV3UtamaComponent
+    FormHasilSeleksiV3UtamaComponent,
+    VideoPanduanComponent
   ]
 })
 export class ComponentUtamaModule { }
