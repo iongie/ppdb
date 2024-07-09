@@ -9,11 +9,13 @@ import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 })
 export class RegulasiComponent {
   safeDocsAlur: SafeUrl | null = null;
+  safeDocsKuota: SafeUrl | null = null;
   constructor(
     private sanitizer: DomSanitizer
   ){}
 
   ngOnInit(): void {
     this.safeDocsAlur = this.sanitizer.bypassSecurityTrustResourceUrl(environment.URL_REGULASI_PPDB+Date.now().toString())
+    this.safeDocsKuota = this.sanitizer.bypassSecurityTrustResourceUrl(environment.URL_KUOTA_PPDB+Date.now().toString())
   }
 }
